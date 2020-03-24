@@ -11,11 +11,12 @@ var locationSchema = new mongoose.Schema({
         name: String,
         description: String,
         carbs: Number,
-        price: { type: Currency }
+        price: { type: Currency },
+        image: String
     },
     links: String,
     kids: String,
-    images: String
+    image: String
 });
 
 // location model

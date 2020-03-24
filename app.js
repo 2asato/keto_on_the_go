@@ -2,8 +2,9 @@ var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    mongooseCurrency = require('mongoose-currency').loadType(mongoose);
-    var seedDB = require('./seeds');
+    mongooseCurrency = require('mongoose-currency').loadType(mongoose),
+    Location = require('./models/location')
+    seedDB = require('./seeds');
 
 
 
@@ -24,7 +25,15 @@ app.get('/', function(req, res) {
 
 // locations index page
 app.get('/locations', function(req, res) {
-    res.render('locations/index');
+    Location.find({}, function(err, allLocations) {
+        if(err) {
+            console.log(err);
+            
+        } else {
+            res.render('locations/index', { locations:allLocations });
+
+        }
+    })
 })
 
 // Tell Express to listen for requests (start server)
