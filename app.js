@@ -1,7 +1,8 @@
 var express = require('express'), 
     app = express(),
     bodyParser = require('body-parser'),
-    mongoose = require('mongoose')
+    mongoose = require('mongoose'),
+    mongooseCurrency = require('mongoose-currency').loadType(mongoose);
 
 // connect mongoose
 mongoose.connect('mongodb://localhost/out_on_keto', { useNewUrlParser: true, useUnifiedTopology: true });
