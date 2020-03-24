@@ -14,7 +14,8 @@ var locationSchema = new mongoose.Schema({
         price: { type: Currency }
     },
     links: String,
-    kids: String
+    kids: String,
+    images: String
 });
 
 // location model
