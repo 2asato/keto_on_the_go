@@ -15,6 +15,11 @@ app.get('/', function(req, res) {
     res.render('landing')
 })
 
+// locations index page
+app.get('/locations', function(req, res) {
+    res.render('locations/index');
+})
+
 // Tell Express to listen for requests (start server)
 app.listen(3000, function(){
     console.log('Out On Keto server has started on port 3000');
