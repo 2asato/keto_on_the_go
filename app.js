@@ -9,7 +9,7 @@ var express = require('express'),
 
 
 // connect mongoose
-mongoose.connect('mongodb://localhost/out_on_keto', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/seattle_on_keto', { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));

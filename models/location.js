@@ -7,6 +7,7 @@ var locationSchema = new mongoose.Schema({
     neighborhood: String,
     type: String,
     flavorProfile: String,
+    description: String,
     menuItem: {
         name: String,
         description: String,

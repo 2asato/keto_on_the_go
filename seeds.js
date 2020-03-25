@@ -8,6 +8,7 @@ var data = [
         neighborhood: 'Ballard',
         type: 'Restaurant',
         flavorProfile: 'Seafood',
+        description: 'The Walrus remains a neighborhood spot — a friendly, often bustling, always casual, place to enjoy icy cold piles of oysters, delicious plates, wines by the glass, beer, cider, and smart cocktails.',
         menuItem: {
             name: 'Oysters',
             description: 'Great variety',
