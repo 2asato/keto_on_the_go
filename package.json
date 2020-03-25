@@ -20,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/2asato/out_on_keto.git"
+    "url": "git+https://github.com/2asato/seattle_on_keto.git"
   },
   "author": "Aaron Sato",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/2asato/out_on_keto/issues"
+    "url": "https://github.com/2asato/seattle_on_keto/issues"
   },
-  "homepage": "https://github.com/2asato/out_on_keto#readme"
+  "homepage": "https://github.com/2asato/seattle_on_keto#readme"
 }
