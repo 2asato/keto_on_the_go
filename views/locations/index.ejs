@@ -7,14 +7,14 @@
 
     <div class="row">
             <% locations.forEach(function(location) { %>
-            <div class="col-md-4 mb-5">
-              <div class="card h-100">
+                <div class="col-md-3 col-sm-6">
+                        <div class="thumbnail">
                 <img class="card-img-top" src="<%= location.image %>" alt="">
-                <div class="card-body">
+                <div class="card-body text-center">
                   <h4 class="card-title"><%= location.name %></h4>
                   <p class="card-text"><%= location.description %></p>
                 </div>
-                <div class="card-footer text-center">
+                <div class=" text-center">
                   <a href="#" class="btn btn-primary">Find Out More!</a>
                 </div>
               </div>

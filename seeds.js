@@ -16,9 +16,32 @@ var data = [
             // price: { type: Currency }
             image: 'https://www.thewalrusbar.com/uploads/_900x900_fit_center-center_85_none/walrus-photo-1.jpg'
         },
-        links: 'https://www.thewalrusbar.com/',
+        website: 'https://www.thewalrusbar.com/',
         kids: 'Yes',
-        image: 'https://www.thewalrusbar.com/uploads/_900x900_fit_center-center_85_none/Walrus01.jpg'
+        image: 'https://www.thewalrusbar.com/uploads/_900x900_fit_center-center_85_none/Walrus01.jpg',
+        hours: 'Mon - Sun  4pm - 10pm',
+        phoneNumber: '(206)395-9227',
+    
+    },
+    {
+        name: 'The Pink Door',
+        neighborhood: 'Pike Place',
+        type: 'Restaurant',
+        flavorProfile: 'Italian',
+        description: 'The Pink Door serves delicious, uncomplicated Italian-American food during lunch and dinner. Many offerings derive from La Padronas family recipes—inspired from weekly Sunday gatherings and days in her grandfathers garden.',
+        menuItem: {
+            name: 'Cioppino',
+            description: 'pink door prawns, rock fish, mussels, clams and calamari in a spicy tomato and white wine broth',
+            // carbs: Number,
+            price: 2700,
+            image: 'https://images.squarespace-cdn.com/content/v1/574335cf59827e45443e86b7/1481661521133-9GAVAI1T5MZ4ZVKZWAA8/ke17ZwdGBToddI8pDm48kFyD7pzB8zoMIVY5aiUuFlp7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jG2lbcDYBOeMi4OFSYem8DMb5PTLoEDdB05UqhYu-xbnSznFxIRsaAU-3g5IaylIg/The+Pink+Door-4.jpg?format=1500w',
+        },
+        website: 'https://www.thepinkdoor.net/',
+        menu: 'https://www.thepinkdoor.net/menus',
+        kids: 'Yes',
+        image: 'https://images.squarespace-cdn.com/content/v1/574335cf59827e45443e86b7/1503937961211-E9WF95ZHXPJEO11Z5PIM/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/4A3A4021.jpg',
+        hours: 'Mon - Thu  11:30pm - 11:30pm, Fri - Sat  11:30pm - 1am, Sun  4pm - 10pm',
+        phoneNumber: '(206)443-13241'
     
     }
 ]

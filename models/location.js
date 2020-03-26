@@ -15,9 +15,13 @@ var locationSchema = new mongoose.Schema({
         price: { type: Currency },
         image: String
     },
-    links: String,
+    website: String,
+    menu: String,
+    yelp: String,
     kids: String,
-    image: String
+    image: String,
+    hours: String,
+    phoneNumber: String,
 });
 
 // location model

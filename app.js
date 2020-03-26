@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
     res.render('landing')
 })
 
-// locations index page
+// locations index route
 app.get('/locations', function(req, res) {
     Location.find({}, function(err, allLocations) {
         if(err) {
@@ -34,6 +34,25 @@ app.get('/locations', function(req, res) {
 
         }
     })
+})
+
+// locations create route
+app.post('/locations', function(req, res) {
+    Location.create(req.body.location, function(err, newLocation) {
+        if(err) {
+            console.log(err);
+            res.render('locations/new')
+        } else {
+            newLocation.save();
+            console.log(newLocation);
+            res.redirect('locations')
+        }
+    })
+})
+
+// locations new route
+app.get('/locations/new', function(req, res) {
+    res.render('locations/new')
 })
 
 // Tell Express to listen for requests (start server)
