@@ -23,6 +23,9 @@ var locationSchema = new mongoose.Schema({
     hours: String,
     phoneNumber: String,
     address: String,
+    city: String,
+    state: String,
+    zip: String,  
 });
 
 // location model
