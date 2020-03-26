@@ -5,8 +5,8 @@ var mongoose = require('mongoose'),
 var locationSchema = new mongoose.Schema({
     name: String,
     neighborhood: String,
-    type: String,
-    flavorProfile: String,
+    restaurantType: String,
+    foodType: String,
     description: String,
     menuItem: {
         name: String,
@@ -22,6 +22,7 @@ var locationSchema = new mongoose.Schema({
     image: String,
     hours: String,
     phoneNumber: String,
+    address: String,
 });
 
 // location model

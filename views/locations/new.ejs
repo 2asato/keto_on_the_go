@@ -1,1 +1,103 @@
-<h1>New Location Page</h1>
+<%- include ('../partials/header') -%>
+
+<div class="container" id="new-location-form">
+    <!-- <div class="row"> -->
+        <h1>Add A New Location</h1>
+        <!-- <div> -->
+                <form>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="inputEmail4">Name</label>
+                            <input type="text" class="form-control" placeholder="Name">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="inputPassword4">Neighborhood</label>
+                            <input type="text" class="form-control" placeholder="Neighborhood">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputAddress">Address</label>
+                          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity">
+                          </div>
+                          <div class="form-group col-md-2">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>WA</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="inputZip">Zip</label>
+                            <input type="text" class="form-control" id="inputZip">
+                          </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputEmail4">Type of Location</label>
+                                <select class="form-control">
+                                  <option selected>Restaurant</option>
+                                  <option value="">Food Truck</option>
+                                </select>
+                                </div>
+                            <div class="form-group col-md-8">
+                                <label for="inputPassword4">Type of Food</label>
+                                <input type="text" class="form-control" placeholder="American, Mexican, Chinese, etc.">
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="inputDescription">Description</label>
+                            <textarea class="form-control" cols="55" rows="3"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="">Website</label>
+                                <input class="form-control" type="text" placeholder="http://example.com">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="">Menu</label>
+                                <input class="form-control" type="text" placeholder="http://example.com">
+                            </div>
+    
+        
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="">Yelp</label>
+                                <input class="form-control" type="text" placeholder="Yelp URL">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="">Kid Friendly</label>
+                                <select class="form-control">
+                                    <option selected>Yes</option>
+                                    <option value="">No</option>
+                                    </select>
+                                </div>
+                                
+
+    
+                        </div>
+                        <div class="form-row">
+                            <label for="">Image</label>
+                            <input class="form-control" type="text" placeholder="Image URL">
+                        </div>
+        
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                      </form>        
+                    </div>
+    <!-- </div> -->
+<!-- </div> -->
+
+
+
+
+
+
+
+
+
+<%- include ('../partials/footer') -%>
