@@ -1,0 +1,43 @@
+<%- include ('../partials/header') -%>
+
+<div class="container" id="show-container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="thumbnail">
+                    <img class="img-fluid" src="<%= location.image %>" alt="">
+                    <div class="caption-full">
+                        <h4><a href=""><%= location.name %></a></h4>
+                        <p><%= location.description %></p>
+                        <a class="btn btn-warning" href="">Edit</a>
+                        <form class="delete-form" action="" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                    <% if((location.website) || (location.menu) || (location.yelp)) { %>
+                    <p class="lead">Links</p>
+                    <div class="list-group">
+                        <% if(location.website) { %>
+                        <li class="list-group-item border-0"><a href="<%= location.website %>">Website</a></li>
+                        <% } %>
+                        <% if(location.menu) { %>
+                        <li class="list-group-item border-0"><a href="<%= location.menu %>"><%= location.menu %></a>khkhk</li>
+                        <% } %>
+                        <% if(location.yelp) { %>
+                        <li class="list-group-item border-0"><a href="<%= location.yelp %>"><%= location.yelp %></a></li>
+                        <% } %>
+                    </div>
+                    <% } %>
+                </div>
+    
+        </div>
+    </div>
+
+
+
+
+
+
+<%- include ('../partials/footer') -%>

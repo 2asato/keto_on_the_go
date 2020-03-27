@@ -63,7 +63,7 @@ app.get('/locations/:id', function(req, res) {
             res.redirect('back')
         } else {
             console.log(foundLocation);
-            res.send('show page')
+            res.render('locations/show', { location: foundLocation })
         }
     })
 })

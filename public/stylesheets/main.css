@@ -1,5 +1,15 @@
+body {
+    padding-top: 5%;
+}
+
 #new-location-form {
     width: 80%;
     margin-top: 2%;
+}
+
+
+
+.delete-form {
+    display: inline;
 }
 
