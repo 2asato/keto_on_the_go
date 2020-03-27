@@ -55,6 +55,19 @@ app.get('/locations/new', function(req, res) {
     res.render('locations/new')
 })
 
+// location show route
+app.get('/locations/:id', function(req, res) {
+    Location.findById(req.params.id, function(err, foundLocation) {
+        if(err) {
+            console.log(err);
+            res.redirect('back')
+        } else {
+            console.log(foundLocation);
+            res.send('show page')
+        }
+    })
+})
+
 // Tell Express to listen for requests (start server)
 app.listen(3000, function(){
     console.log('Out On Keto server has started on port 3000');

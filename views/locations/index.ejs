@@ -1,51 +1,31 @@
 <%- include ('../partials/header') -%>
 
-<header class="jumbotron">
-        <div class="container text-center">
+    <header class="jumbotron">
+        <div class="container text-right">
             <h1>Welcome To sEATtle on keto!</h1>
             <p>View keto friendly locations in and around Seattle</p>
         </div>
     </header>
 
-
-
-<div class="container">
-
-
-
-    <div class="row">
-            <!-- <% locations.forEach(function(location) { %>
-                <div class="col-md-3 col-sm-6">
-                        <div class="thumbnail">
-                <img class="card-img-top" src="<%= location.image %>" alt="">
-                <div class="card-body text-center">
-                  <h4 class="card-title"><%= location.name %></h4>
-                  <p class="card-text"><%= location.description %></p>
-                </div>
-                <div class=" text-center">
-                  <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-              </div>
-            </div>
-            <% }) %>     -->
-
+    <div class="container">
+        <div class="row">
             <% locations.forEach(function(location) { %>
             <div class="card mb-3 border-0">
-                    <div class="row no-gutters">
-                      <div class="col-md-4">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
                         <img src="<%= location.image %>" class="card-img" alt="...">
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h5 class="card-title"><%= location.name %></h5>
-                          <p class="card-text"><%= location.description %></p>
-                          <a href="#" class="btn btn-light">See More</a>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                  <% }) %>    
-
-</div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= location.name %></h5>
+                            <p class="card-text"><%= location.description %></p>
+                            <a href="/locations/<%= location._id %>" class="btn btn-light">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>    
+        </div>
+    </div>
 
 <%- include ('../partials/footer') -%>
