@@ -10,19 +10,19 @@
                         <% if((location.website) || (location.menu) || (location.yelp)) { %>
                             <% if(location.website) { %>
                             <li class="link-list">
-                                <img src="/images/browser.png"/>
+                                <i class="fas fa-globe"></i>                                
                                 <strong>&nbsp Website</strong><a href="<%= location.website %>"> - <%= location.website %></a>
                             </li>
                             <% } %>
                             <% if(location.menu) { %>
                             <li class="link-list">
-                                <i class="fas fa-utensils"></i>
+                                <i class="fas fa-utensils circle-icon"></i>
                                 <strong>&nbsp Menu</strong> <a href="<%= location.menu %>"> - <%= location.menu %></a>
                             </li>
                             <% } %>
                             <% if(location.yelp) { %>
                             <li class="link-list">
-                                <i class="fab fa-yelp"></i>
+                                <i class="fab fa-yelp circle-icon"></i>
                                 <strong>&nbsp Yelp</strong> <a href="<%= location.yelp %>"> - <%= location.yelp %></a>
                             </li>
                             <% } %>
