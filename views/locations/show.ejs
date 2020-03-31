@@ -17,13 +17,13 @@
                             <% if(location.menu) { %>
                             <li class="link-list">
                                 <i class="fas fa-utensils circle-icon"></i>
-                                <strong>&nbsp Menu</strong> <a href="<%= location.menu %>"> - <%= location.menu %></a>
+                                <strong>&nbsp &nbspMenu</strong> <a href="<%= location.menu %>"> - <%= location.menu %></a>
                             </li>
                             <% } %>
                             <% if(location.yelp) { %>
                             <li class="link-list">
                                 <i class="fab fa-yelp circle-icon"></i>
-                                <strong>&nbsp Yelp</strong> <a href="<%= location.yelp %>"> - <%= location.yelp %></a>
+                                <strong>&nbsp &nbspYelp</strong> <a href="<%= location.yelp %>"> - <%= location.yelp %></a>
                             </li>
                             <% } %>
                         <% } %>
@@ -31,9 +31,35 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
+                <p class="lead">Info</p>
+                <div class="list-group">
+                    <li class="list-group-item info-list">
+                        <i class="fas fa-map-signs"></i>
+                        <p><%= location.neighborhood %></p>
+                    </li>
+                    <li class="list-group-item info-list">
+                                <i class="fas fa-map-marker-alt"></i>
+
+                                <p class="address-show">
+                                        <%= location.address.street %><br>
+                                        <%= location.address.city %>&nbsp<%= location.address.state %>,&nbsp<%= location.address.zip %>
+                                    </p>
+
+
+        
+                    </li>
+                    <li class="list-group-item info-list">
+                        <i class="fas fa-phone"></i>
+                        <p><%= location.phone %></p>
+                    </li>   
                 </div>
-    
+                <p class="lead">Keto Options</p>
+                <div class="list-group">
+                    <li class="list-group-item">Option 1</li>
+                    <li class="list-group-item">Option 2</li>
+                    <li class="list-group-item">Option 3</li>
+                </div>       
         </div>
     </div>
 

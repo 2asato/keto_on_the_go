@@ -22,10 +22,12 @@ var locationSchema = new mongoose.Schema({
     image: String,
     hours: String,
     phoneNumber: String,
-    address: String,
-    city: String,
-    state: String,
-    zip: String,  
+    address: {
+        street: String,
+        city: String,
+        state: String,
+        zip: String,      
+    },
 });
 
 // location model

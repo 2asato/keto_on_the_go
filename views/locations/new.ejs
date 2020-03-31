@@ -18,24 +18,24 @@
             <div class="form-row">
                 <div class="form-group col-md-7">
                     <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control form-control-sm" placeholder="1234 Main St" name="location[address]">
+                    <input type="text" class="form-control form-control-sm" placeholder="1234 Main St" name="location[address.street]">
                 </div>                 
                 <div class="form-group col-md-5">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control form-control-sm" name="location[city]">
+                    <input type="text" class="form-control form-control-sm" name="location[address.city]">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="inputState">State</label>
-                    <select class="form-control form-control-sm" name="location[state]">
+                    <select class="form-control form-control-sm" name="location[address.state]">
                         <option selected value="WA">WA</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control form-control-sm" name="location[zip]">
+                    <input type="text" class="form-control form-control-sm" name="location[address.zip]">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputPassword4">Neighborhood *</label>
@@ -51,7 +51,7 @@
                 <div class="form-group col-md-4">
                     <label for="inputEmail4">Type of Location</label>
                     <select class="form-control form-control-sm" name="location[restaurantType]">
-                        <option selected>Choose one</option>
+                        <!-- <option selected>Choose one</option> -->
                         <option value="Restaurant">Restaurant</option>
                         <option value="Food Truck">Food Truck</option>
                         <option value="Brewery">Brewery</option>
@@ -84,7 +84,7 @@
                 <div class="form-group col-md-3">
                     <label for="">Kid Friendly</label>
                     <select class="form-control form-control-sm" name="location[kids]">
-                        <option selected>Choose one</option>
+                        <!-- <option selected>Choose one</option> -->
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>

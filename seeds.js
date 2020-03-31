@@ -23,6 +23,13 @@ var data = [
         image: 'https://www.thewalrusbar.com/uploads/_900x900_fit_center-center_85_none/Walrus01.jpg',
         hours: 'Mon - Sun  4pm - 10pm',
         phoneNumber: '(206)395-9227',
+        address: {
+            street: '4743 Ballard ave NW',
+            city: 'Seattle',
+            state: 'WA',
+            zip: '98107',      
+        },
+    
     
     },
     {

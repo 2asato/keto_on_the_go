@@ -17,11 +17,16 @@ h3, #restaurant-type {
 
 .link-list {
     list-style-type: none;
-
     margin-right: 4%;
 }
 
+.info-list p{
+    margin: 0px;
+}
 
+.list-group-item {
+    padding: .5rem .5rem;
+}
 
 .fa-yelp {
     color: red;
