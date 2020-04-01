@@ -87,10 +87,11 @@
 
     <div class="form-row">
       <div class="form-group col-md-4">
-        <label for="inputEmail4">Type of Location</label>
+        <label for="inputEmail4">Type of Location *</label>
         <select
           class="form-control form-control-sm"
           name="location[restaurantType]"
+          required
         >
           <!-- <option selected>Choose one</option> -->
           <option value="Restaurant">Restaurant</option>
@@ -111,10 +112,23 @@
 
     <div class="form-row">
       <div class="form-group col-md-6">
-                    <label for="">Days of Week Open</label>
-                    <input type="text" class="form-control form-control-sm" placeholder="M,T,W,Th,F,Sa,Su" name="location[daysOpen]">
-                </div>
-                <div class="form-group col-md-6"></div>
+        <label for="">Days of Week Open</label>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          placeholder="M,T,W,Th,F,Sa,Su"
+          name="location[daysOpen]"
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="">Serves</label>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          placeholder="Breakfast, Lunch, Dinner"
+          name="location[serves]"
+        />
+      </div>
       <!-- <div class="form-group col-md-6">
         <label for="daysOpen">Days Open</label><br />
         <div class="form-check form-check-inline">

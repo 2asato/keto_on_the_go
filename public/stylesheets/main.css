@@ -1,6 +1,13 @@
 body {
-    padding-top: 5%;
+    padding-top: 7%;
+    padding-bottom: 5%;
+    font-family: 'Roboto Slab', serif;
 }
+
+.raleway, h1 {
+    font-family: 'Raleway', sans-serif;
+}
+
 
 #new-location-form {
     width: 80%;
@@ -12,7 +19,7 @@ body {
 }
 
 .web-links {
-    font-size: .95em;
+    font-size: .90em;
 }
 
 .delete-form {

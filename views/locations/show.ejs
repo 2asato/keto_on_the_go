@@ -6,16 +6,16 @@
       <div class="thumbnail">
         <img class="img-fluid show-img" src="<%= location.image %>" alt="" />
         <div class="caption-full">
-          <h3><a href=""><%= location.name %></a></h3>
+          <h3 class="raleway"><a href=""><%= location.name %></a></h3>
           <div class="container">
                 <div class="row">
                         <div class="col-xs-6">
-                              <h6 class="type-kids-open"><%= location.restaurantType %>&nbsp - &nbsp<%= location.foodType %></h6>
-                              <h6 class= "type-kids-open">Serves - Breakfast, Lunch, Dinner</h6>
+                              <h6 class="type-kids-open"><%= location.restaurantType %>:  &nbsp<%= location.foodType %></h6>
+                              <h6 class= "type-kids-open">Serves: <%= location.serves %></h6>
                             </div>
                         <div class="col-xs-">
-                            <h6 class="hrs-kids type-kids-open">Open - <%= location.daysOpen %></h6>
-                            <h6 class="hrs-kids type-kids-open">Kid friendly - <%= location.kids %></h6>
+                            <h6 class="hrs-kids type-kids-open">Open:  <%= location.daysOpen %></h6>
+                            <h6 class="hrs-kids type-kids-open">Kid friendly:  <%= location.kids %></h6>
 
                         </div>
                     </div>
@@ -27,19 +27,19 @@
                         <li class="link-list web-links">
                           <i class="fas fa-globe"></i>
                           <strong>&nbsp Website</strong
-                          ><a href="<%= location.website %>"> - <%= location.website %></a>
+                          ><a href="<%= location.website %>">: &nbsp <%= location.website %></a>
                         </li>
                         <% } %> <% if(location.menu) { %>
                         <li class="link-list web-links">
                           <i class="fas fa-utensils circle-icon"></i>
                           <strong>&nbsp &nbspMenu</strong>
-                          <a href="<%= location.menu %>"> - <%= location.menu %></a>
+                          <a href="<%= location.menu %>">: &nbsp <%= location.menu %></a>
                         </li>
                         <% } %> <% if(location.yelp) { %>
                         <li class="link-list web-links">
                           <i class="fab fa-yelp circle-icon"></i>
                           <strong>&nbsp &nbspYelp</strong>
-                          <a href="<%= location.yelp %>"> - <%= location.yelp %></a>
+                          <a href="<%= location.yelp %>">: &nbsp <%= location.yelp %></a>
                         </li>
 
                         <% } %>
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="col-md-5">
-      <p class="lead">Info</p>
+      <p class="lead raleway">Info</p>
       <div class="list-group list-group-flush">
         <li class="list-group-item info-list">
           <i class="fas fa-map-signs info-icons"></i>
@@ -68,7 +68,7 @@
                 <%= location.address.street %><br />
                 <span id="city-state-zip">
                         <%= location.address.city %>&nbsp<%= location.address.state
-                        %>,&nbsp<%= location.address.zip %> 
+                        %>&nbsp<%= location.address.zip %> 
                 </span>       
               </address>
           </p>
@@ -78,7 +78,7 @@
           <p><%= location.phoneNumber %></p>
         </li>
       </div>
-      <p class="lead">Keto Options</p>
+      <p class="lead raleway">Keto Options</p>
       <div class="list-group list-group-flush">
         <li class="list-group-item">Option 1</li>
         <li class="list-group-item">Option 2</li>

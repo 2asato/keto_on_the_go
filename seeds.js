@@ -35,8 +35,8 @@ var data = [
     {
         name: 'The Pink Door',
         neighborhood: 'Pike Place',
-        type: 'Restaurant',
-        flavorProfile: 'Italian',
+        restaurantType: 'Restaurant',
+        foodType: 'Italian',
         description: 'The Pink Door serves delicious, uncomplicated Italian-American food during lunch and dinner. Many offerings derive from La Padronas family recipes—inspired from weekly Sunday gatherings and days in her grandfathers garden.',
         menuItem: {
             name: 'Cioppino',
