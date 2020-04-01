@@ -7,7 +7,7 @@ body {
     margin-top: 2%;
 }
 
-#restaurant-type {
+.type-kids {
     font-size: .75em;
 }
 
@@ -29,7 +29,11 @@ body {
 }
 
 .list-group-item {
-    padding: .5rem .5rem;
+    padding: .3rem .5rem;
+    font-size: .95rem;
+    border-color: lightgrey;
+    box-shadow: 5px 10px 5px lightgrey;
+
 }
 
 .fa-yelp {
@@ -50,6 +54,10 @@ a {
 
 #city-state-zip {
     margin-left: 26px;
+}
+
+.list-group {
+    margin-bottom: 5%;
 }
 
 

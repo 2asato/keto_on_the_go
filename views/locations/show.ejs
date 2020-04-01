@@ -7,36 +7,41 @@
         <img class="img-fluid" src="<%= location.image %>" alt="" />
         <div class="caption-full">
           <h3><a href=""><%= location.name %></a></h3>
-          <h6 id="restaurant-type"><%= location.restaurantType %>&nbsp - &nbsp<%= location.foodType %></h6>
+          <h6 class="type-kids"><%= location.restaurantType %>&nbsp - &nbsp<%= location.foodType %></h6>
+          <h6 class="type-kids">Kid friendly - <%= location.kids %></h6>
           <hr>
-          <% if((location.website) || (location.menu) || (location.yelp)) { %>
-          <% if(location.website) { %>
-          <li class="link-list web-links">
-            <i class="fas fa-globe"></i>
-            <strong>&nbsp Website</strong
-            ><a href="<%= location.website %>"> - <%= location.website %></a>
-          </li>
-          <% } %> <% if(location.menu) { %>
-          <li class="link-list web-links">
-            <i class="fas fa-utensils circle-icon"></i>
-            <strong>&nbsp &nbspMenu</strong>
-            <a href="<%= location.menu %>"> - <%= location.menu %></a>
-          </li>
-          <% } %> <% if(location.yelp) { %>
-          <li class="link-list web-links">
-            <i class="fab fa-yelp circle-icon"></i>
-            <strong>&nbsp &nbspYelp</strong>
-            <a href="<%= location.yelp %>"> - <%= location.yelp %></a>
-          </li>
-          <hr>
-          <% } %> <% } %>
-        </div>
+            <div id="links">
+                    <% if(location.website) { %>
+                        <li class="link-list web-links">
+                          <i class="fas fa-globe"></i>
+                          <strong>&nbsp Website</strong
+                          ><a href="<%= location.website %>"> - <%= location.website %></a>
+                        </li>
+                        <% } %> <% if(location.menu) { %>
+                        <li class="link-list web-links">
+                          <i class="fas fa-utensils circle-icon"></i>
+                          <strong>&nbsp &nbspMenu</strong>
+                          <a href="<%= location.menu %>"> - <%= location.menu %></a>
+                        </li>
+                        <% } %> <% if(location.yelp) { %>
+                        <li class="link-list web-links">
+                          <i class="fab fa-yelp circle-icon"></i>
+                          <strong>&nbsp &nbspYelp</strong>
+                          <a href="<%= location.yelp %>"> - <%= location.yelp %></a>
+                        </li>
 
+                        <% } %>
+                        <hr> 
+              
+            </div>
+
+        </div>
         <p><%= location.description %></p>
         <hr>
+
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5">
       <p class="lead">Info</p>
       <div class="list-group">
         <li class="list-group-item info-list">
