@@ -28,6 +28,8 @@ var locationSchema = new mongoose.Schema({
         state: String,
         zip: String,      
     },
+    daysOpen: String,
+    serves: String
 });
 
 // location model
