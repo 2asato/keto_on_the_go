@@ -33,26 +33,31 @@
         </div>
 
         <p><%= location.description %></p>
+        <hr>
       </div>
     </div>
     <div class="col-md-4">
       <p class="lead">Info</p>
       <div class="list-group">
         <li class="list-group-item info-list">
-          <i class="fas fa-map-signs"></i>
+          <i class="fas fa-map-signs info-icons"></i>
           <p><%= location.neighborhood %></p>
         </li>
         <li class="list-group-item info-list">
-          <i class="fas fa-map-marker-alt"></i>
+          <i class="fas fa-map-marker-alt info-icons"></i>
 
           <p class="address-show">
-            <%= location.address.street %><br />
-            <%= location.address.city %>&nbsp<%= location.address.state
-            %>,&nbsp<%= location.address.zip %>
+              <address>
+                <%= location.address.street %><br />
+                <span id="city-state-zip">
+                        <%= location.address.city %>&nbsp<%= location.address.state
+                        %>,&nbsp<%= location.address.zip %> 
+                </span>       
+              </address>
           </p>
         </li>
         <li class="list-group-item info-list">
-          <i class="fas fa-phone"></i>
+          <i class="fas fa-phone info-icons"></i>
           <p><%= location.phoneNumber %></p>
         </li>
       </div>

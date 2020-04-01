@@ -40,6 +40,17 @@ a {
     color: black;
 }
 
+.info-icons {
+    margin-right: 10px;
+}
+
+.list-group-item,i,p,address {
+    display: inline;
+}
+
+#city-state-zip {
+    margin-left: 26px;
+}
 
 
 
