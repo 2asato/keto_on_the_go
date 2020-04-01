@@ -7,8 +7,12 @@ body {
     margin-top: 2%;
 }
 
-h3, #restaurant-type {
-    display: inline;
+#restaurant-type {
+    font-size: .75em;
+}
+
+.web-links {
+    font-size: .95em;
 }
 
 .delete-form {
