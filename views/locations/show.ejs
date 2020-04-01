@@ -4,11 +4,23 @@
   <div class="row">
     <div class="col-md-7">
       <div class="thumbnail">
-        <img class="img-fluid" src="<%= location.image %>" alt="" />
+        <img class="img-fluid show-img" src="<%= location.image %>" alt="" />
         <div class="caption-full">
           <h3><a href=""><%= location.name %></a></h3>
-          <h6 class="type-kids"><%= location.restaurantType %>&nbsp - &nbsp<%= location.foodType %></h6>
-          <h6 class="type-kids">Kid friendly - <%= location.kids %></h6>
+          <div class="container">
+                <div class="row">
+                        <div class="col-xs-6">
+                              <h6 class="type-kids-open"><%= location.restaurantType %>&nbsp - &nbsp<%= location.foodType %></h6>
+                              <h6 class= "type-kids-open">Serves - Breakfast, Lunch, Dinner</h6>
+                            </div>
+                        <div class="col-xs-">
+                            <h6 class="hrs-kids type-kids-open">Open - Mon,Tue,Wed,Thu,Fri,Sat,Sun</h6>
+                            <h6 class="hrs-kids type-kids-open">Kid friendly - <%= location.kids %></h6>
+
+                        </div>
+                    </div>
+          
+          </div>
           <hr>
             <div id="links">
                     <% if(location.website) { %>

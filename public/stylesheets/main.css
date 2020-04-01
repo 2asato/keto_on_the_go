@@ -7,7 +7,7 @@ body {
     margin-top: 2%;
 }
 
-.type-kids {
+.type-kids-open {
     font-size: .75em;
 }
 
@@ -60,5 +60,11 @@ a {
     margin-bottom: 5%;
 }
 
+.hrs-kids {
+    margin-left: 50px;
+}
 
+.show-img {
+    
+}
 
