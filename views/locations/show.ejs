@@ -6,14 +6,14 @@
       <div class="thumbnail">
         <img class="img-fluid show-img" src="<%= location.image %>" alt="" />
         <div class="caption-full">
-          <h3 class="raleway"><a href=""><%= location.name %></a></h3>
+          <h3 class="raleway"><a href=""><strong><%= location.name %></strong></a></h3>
           <div class="container">
                 <div class="row">
                         <div class="col-xs-6">
                               <h6 class="type-kids-open"><%= location.restaurantType %>:  &nbsp<%= location.foodType %></h6>
                               <h6 class= "type-kids-open">Serves: <%= location.serves %></h6>
                             </div>
-                        <div class="col-xs-">
+                        <div class="col-xs-6">
                             <h6 class="hrs-kids type-kids-open">Open:  <%= location.daysOpen %></h6>
                             <h6 class="hrs-kids type-kids-open">Kid friendly:  <%= location.kids %></h6>
 
@@ -22,7 +22,7 @@
           
           </div>
           <hr>
-            <div id="links">
+          <!-- <div id="links">
                     <% if(location.website) { %>
                         <li class="link-list web-links">
                           <i class="fas fa-globe"></i>
@@ -45,23 +45,29 @@
                         <% } %>
                         <hr> 
               
-            </div>
-
+            </div>  
+ -->
         </div>
         <p><%= location.description %></p>
         <hr>
 
       </div>
+      <div class="well">
+            <div class="text-right">
+                <a class="btn" href="">Add New Comment</a>
+            </div>
+        </div>
+    
     </div>
     <div class="col-md-5">
-      <p class="lead raleway">Info</p>
+      <p class="lead raleway"><strong>Info</strong></p>
       <div class="list-group list-group-flush">
         <li class="list-group-item info-list">
-          <i class="fas fa-map-signs info-icons"></i>
+          <i class="fas fa-map-signs info-links-icons"></i>
           <p><%= location.neighborhood %></p>
         </li>
         <li class="list-group-item info-list">
-          <i class="fas fa-map-marker-alt info-icons"></i>
+          <i class="fas fa-map-marker-alt info-links-icons"></i>
 
           <p class="address-show">
               <address>
@@ -74,15 +80,33 @@
           </p>
         </li>
         <li class="list-group-item info-list">
-          <i class="fas fa-phone info-icons"></i>
+          <i class="fas fa-phone info-links-icons"></i>
           <p><%= location.phoneNumber %></p>
         </li>
       </div>
-      <p class="lead raleway">Keto Options</p>
+      <p class="lead raleway"><strong>Keto Options</strong></p>
       <div class="list-group list-group-flush">
         <li class="list-group-item">Option 1</li>
         <li class="list-group-item">Option 2</li>
         <li class="list-group-item">Option 3</li>
+      </div>
+      <p class="lead raleway"><strong>Links</strong></p>
+      <div class="list-group list-group-flush">
+          <li class="list-group-item">
+                <i class="fas fa-globe info-links-icons"></i>
+                <a href="<%= location.website %>"></a><%= location.website %></a>
+
+          </li>
+          <li class="list-group-item">
+                <i class="fas fa-utensils circle-icon info-links-icons"></i>
+                <a href="<%= location.menu %>"><%= location.menu %></a>
+
+          </li>
+          <li class="list-group-item">
+                <i class="fab fa-yelp circle-icon info-links-icons"></i>
+                <a href="<%= location.yelp %>"><%= location.yelp %></a>
+
+          </li>
       </div>
     </div>
   </div>

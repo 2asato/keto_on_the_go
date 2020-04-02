@@ -69,6 +69,6 @@ app.get('/locations/:id', function(req, res) {
 })
 
 // Tell Express to listen for requests (start server)
-app.listen(7000, function(){
-    console.log('Out On Keto server has started on port 7000');
+app.listen(8000, function(){
+    console.log('Out On Keto server has started on port 8000');
 })
