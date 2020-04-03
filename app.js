@@ -86,7 +86,7 @@ app.get('/locations/:id/comments/new', function(req, res) {
             console.log(err);
             
         } else {
-            res.send('soon to be new comments form')
+            res.render('comments/new', { location: location })
         }
     })
 })
