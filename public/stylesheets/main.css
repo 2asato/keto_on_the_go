@@ -83,3 +83,8 @@ a {
       font-weight: bold;
   }
 
+  .comments-form {
+      width: 50%;
+      margin-top: 5%;
+  }
+

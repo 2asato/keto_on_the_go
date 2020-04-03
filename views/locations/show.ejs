@@ -6,7 +6,7 @@
       <div class="thumbnail">
         <img class="img-fluid show-img" src="<%= location.image %>" alt="" />
         <div class="caption-full">
-          <h3 class="raleway"><a href=""><strong><%= location.name %></strong></a></h3>
+          <h3 class="raleway font-weight-bold"><a href=""><%= location.name %></a></h3>
           <div class="container">
                 <div class="row">
                         <div class="col-xs-6">
@@ -54,13 +54,13 @@
       </div>
       <div class="well">
             <div class="text-right">
-                <a class="btn" href="">Add New Comment</a>
+                <a class="btn font-weight-bold" href="/locations/<%= location._id %>/comments/new">Add New Comment</a>
             </div>
         </div>
     
     </div>
     <div class="col-md-5">
-      <p class="lead raleway"><strong>Info</strong></p>
+      <p class="lead raleway font-weight-bold">Info</p>
       <div class="list-group list-group-flush">
         <li class="list-group-item info-list">
           <i class="fas fa-map-signs info-links-icons"></i>
@@ -84,13 +84,13 @@
           <p><%= location.phoneNumber %></p>
         </li>
       </div>
-      <p class="lead raleway"><strong>Keto Options</strong></p>
+      <p class="lead raleway font-weight-bold">Keto Options</p>
       <div class="list-group list-group-flush">
         <li class="list-group-item">Option 1</li>
         <li class="list-group-item">Option 2</li>
         <li class="list-group-item">Option 3</li>
       </div>
-      <p class="lead raleway"><strong>Links</strong></p>
+      <p class="lead raleway font-weight-bold">Links</p>
       <div class="list-group list-group-flush">
           <li class="list-group-item">
                 <i class="fas fa-globe info-links-icons"></i>
