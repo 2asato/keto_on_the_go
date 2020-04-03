@@ -23,6 +23,11 @@ app.get('/', function(req, res) {
     res.render('landing')
 })
 
+
+// ======================
+// locations routes
+// =======================
+
 // locations index route
 app.get('/locations', function(req, res) {
     Location.find({}, function(err, allLocations) {
@@ -67,6 +72,26 @@ app.get('/locations/:id', function(req, res) {
         }
     })
 })
+
+
+// ===================
+// comments routes
+// ====================
+
+// new comment page
+app.get('/locations/:id/comments/new', function(req, res) {
+    // find location by id
+    Location.findById(req.params.id, function(err, location) {
+        if(err) {
+            console.log(err);
+            
+        } else {
+            res.send('soon to be new comments form')
+        }
+    })
+})
+
+
 
 // Tell Express to listen for requests (start server)
 app.listen(8000, function(){
