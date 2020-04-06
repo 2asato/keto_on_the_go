@@ -12,7 +12,7 @@ var locationSchema = new mongoose.Schema({
         name: String,
         description: String,
         carbs: Number,
-        price: { type: Currency },
+        price: String,
         image: String
     },
     website: String,
@@ -29,7 +29,13 @@ var locationSchema = new mongoose.Schema({
         zip: String,      
     },
     daysOpen: String,
-    serves: String
+    serves: String,
+    comments: [
+        {
+           type: mongoose.Schema.Types.ObjectId,
+           ref: "Comment"
+        }
+     ]
 });
 
 // location model

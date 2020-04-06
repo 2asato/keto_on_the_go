@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-7">
       <div class="thumbnail">
-        <img class="img-fluid show-img" src="<%= location.image %>" alt="" />
+        <img class="img-fluid mb-4" src="<%= location.image %>" alt="" />
         <div class="caption-full">
           <h3 class="raleway font-weight-bold"><a href=""><%= location.name %></a></h3>
           <div class="container">
@@ -14,8 +14,8 @@
                               <h6 class= "type-kids-open">Serves: <%= location.serves %></h6>
                             </div>
                         <div class="col-xs-6">
-                            <h6 class="hrs-kids type-kids-open">Open:  <%= location.daysOpen %></h6>
-                            <h6 class="hrs-kids type-kids-open">Kid friendly:  <%= location.kids %></h6>
+                            <h6 class="ml-5 type-kids-open">Open:  <%= location.daysOpen %></h6>
+                            <h6 class="ml-5 type-kids-open">Kid friendly:  <%= location.kids %></h6>
 
                         </div>
                     </div>
@@ -54,20 +54,30 @@
       </div>
       <div class="well">
             <div class="text-right">
-                <a class="btn font-weight-bold" href="/locations/<%= location._id %>/comments/new">Add New Comment</a>
+                <a class="btn btn-sm btn-dark font-weight-bold" href="/locations/<%= location._id %>/comments/new">Add New Comment</a>
             </div>
+            <hr>
+            <% location.comments.forEach(function(comment){ %>
+              <div class="row">
+                  <div class="col-md-12">
+                      <strong><%= comment.author %></strong>
+                      <p><%= comment.text %></p>
+                  </div>
+              </div>
+          <% }) %>                
+
         </div>
     
     </div>
     <div class="col-md-5">
       <p class="lead raleway font-weight-bold">Info</p>
-      <div class="list-group list-group-flush">
+      <div class="list-group mb-1 list-group-flush">
         <li class="list-group-item info-list">
-          <i class="fas fa-map-signs info-links-icons"></i>
+          <i class="fas fa-map-signs mr-3"></i>
           <p><%= location.neighborhood %></p>
         </li>
         <li class="list-group-item info-list">
-          <i class="fas fa-map-marker-alt info-links-icons"></i>
+          <i class="fas fa-map-marker-alt mr-3"></i>
 
           <p class="address-show">
               <address>
@@ -80,30 +90,30 @@
           </p>
         </li>
         <li class="list-group-item info-list">
-          <i class="fas fa-phone info-links-icons"></i>
+          <i class="fas fa-phone mr-3"></i>
           <p><%= location.phoneNumber %></p>
         </li>
       </div>
       <p class="lead raleway font-weight-bold">Keto Options</p>
-      <div class="list-group list-group-flush">
+      <div class="list-group mb-1 list-group-flush">
         <li class="list-group-item">Option 1</li>
         <li class="list-group-item">Option 2</li>
         <li class="list-group-item">Option 3</li>
       </div>
       <p class="lead raleway font-weight-bold">Links</p>
-      <div class="list-group list-group-flush">
+      <div class="list-group mb-1 list-group-flush">
           <li class="list-group-item">
-                <i class="fas fa-globe info-links-icons"></i>
+                <i class="fas fa-globe mr-3"></i>
                 <a href="<%= location.website %>"></a><%= location.website %></a>
 
           </li>
           <li class="list-group-item">
-                <i class="fas fa-utensils circle-icon info-links-icons"></i>
+                <i class="fas fa-utensils circle-icon mr-3"></i>
                 <a href="<%= location.menu %>"><%= location.menu %></a>
 
           </li>
           <li class="list-group-item">
-                <i class="fab fa-yelp circle-icon info-links-icons"></i>
+                <i class="fab fa-yelp circle-icon mr-3 text-danger"></i>
                 <a href="<%= location.yelp %>"><%= location.yelp %></a>
 
           </li>

@@ -3,13 +3,7 @@ var mongoose = require('mongoose');
 // schema
 var commentSchema = new mongoose.Schema({
     text: String,
-    author: {
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
-        },
-        username: String
-    },
+    author: String,
     added: { type: Date, default: Date.now }
 })
 
