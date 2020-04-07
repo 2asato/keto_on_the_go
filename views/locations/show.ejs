@@ -1,155 +1,179 @@
 <%- include ('../partials/header') -%>
 
+<!-- page container -->
 <div class="container" id="show-container">
-  <div class="row">
-    <div class="col-md-7">
-      <div class="thumbnail">
-        <img class="img-fluid mb-4" src="<%= location.image %>" alt="" />
-        <div class="caption-full">
-          <h3 class="raleway font-weight-bold"><a href=""><%= location.name %></a></h3>
-          <div class="container">
-                <div class="row">
-                        <div class="col-xs-6">
-                              <h6 class="type-kids-open"><%= location.restaurantType %>:  &nbsp<%= location.foodType %></h6>
-                              <h6 class= "type-kids-open">Serves: <%= location.serves %></h6>
-                            </div>
-                        <div class="col-xs-6">
-                            <h6 class="ml-5 type-kids-open">Open:  <%= location.daysOpen %></h6>
-                            <h6 class="ml-5 type-kids-open">Kid friendly:  <%= location.kids %></h6>
 
+    <!-- row 1 -->
+    <div class="row">
+
+        <!-- left side -->
+        <div class="col-md-7">
+
+            <!-- img, info and description  -->
+            <div class="thumbnail col">
+                <img class="img-fluid mb-4" src="<%= location.image %>" alt="" />
+                <div class="caption-full">
+                    <h3 class="raleway font-weight-bold"><a href=""><%= location.name %></a></h3>
+
+                    <!-- type, serves and kids -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h6 class="type-kids-open"><%= location.restaurantType %>:  &nbsp<%= location.foodType %></h6>
+                                <h6 class= "type-kids-open">Serves: <%= location.serves %></h6>
+                            </div>
+                            <div class="col-xs-6">
+                                <h6 class="ml-5 type-kids-open">Open:  <%= location.daysOpen %></h6>
+                                <h6 class="ml-5 type-kids-open">Kid friendly:  <%= location.kids %></h6>
+                            </div>
+                        </div>                     
+                    </div>
+                    <hr>
+                    <!-- type, serves and kids end -->
+
+                    <!-- description -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <p><%= location.description %></p>
+                            </div>
                         </div>
                     </div>
+                    <!-- description end -->
+                    
+                    <hr>                      
+                </div>
+            </div>
+            <!-- img, info and description end -->
+            
+
+        </div>
+        <!-- left side end -->
+
+        <!-- right side -->
+        <div class="col-md-5">
+
+            <!-- info, menu, links, map -->
+            <div class="col">
+
+                <!-- info -->
+                <p class="lead raleway font-weight-bold">Info</p>
+                <div class="list-group mb-1 list-group-flush">
+                    <li class="list-group-item info-list">
+                        <i class="fas fa-map-signs mr-3"></i>
+                        <p><%= location.neighborhood %></p>
+                    </li>
+                    <li class="list-group-item info-list">
+                        <i class="fas fa-map-marker-alt mr-3"></i>
+                        <p class="address-show">
+                            <address>
+                                <%= location.address.street %><br />
+                                <span id="city-state-zip">
+                                    <%= location.address.city %>&nbsp<%= location.address.state %>&nbsp<%= location.address.zip %> 
+                              </span>       
+                            </address>
+                        </p>
+                    </li>
+                    <li class="list-group-item info-list">
+                        <i class="fas fa-phone mr-3"></i>
+                        <p><%= location.phoneNumber %></p>
+                    </li>
+                </div>
+                <!-- info end -->
+
+                <!-- menu -->
+                <p class="lead raleway font-weight-bold">Keto Options</p>
+                <div class="list-group mb-1 list-group-flush">
+                    <li class="list-group-item">Option 1</li>
+                    <li class="list-group-item">Option 2</li>
+                    <li class="list-group-item">Option 3</li>
+                </div>
+                <!-- menu end -->
+
+                <!-- links -->
+                <p class="lead raleway font-weight-bold">Links</p>
+                <div class="list-group mb-1 list-group-flush">
+                    <li class="list-group-item">
+                        <i class="fas fa-globe mr-3"></i>
+                        <a href="<%= location.website %>"></a><%= location.website %></a>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-utensils circle-icon mr-3"></i>
+                        <a href="<%= location.menu %>"><%= location.menu %></a>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fab fa-yelp circle-icon mr-3 text-danger"></i>
+                        <a href="<%= location.yelp %>"><%= location.yelp %></a>
+                    </li>
+                </div>
+                <!-- links end -->
+            
+              </div>
+              <!-- info, menu, links, map end -->
           
+            </div>
+          <!-- right side end -->
+
+      </div>
+      <!-- row 1 end -->
+
+      <!-- row 2 -->
+      <div class="row">
+
+          <div class="col">
+              <!-- comments -->
+              <div class="well col">
+                  <!--Accordion wrapper-->
+                  <div class="accordion md-accordion bg-white" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+                      <!-- Accordion card -->
+                      <div class="card">
+      
+                          <!-- Card header -->
+                          <div class="card-header" role="tab" id="headingOne1">
+                              <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+                              aria-controls="collapseOne1">
+                                  <h6 class="mb-0 raleway font-weight-bold">
+                                      Comments &nbsp
+                                      <span id="comments-view-hide">view/hide</span>
+                                  </h6>
+                                  <a class="btn btn-sm btn-dark font-weight-bold" id="comments-add" href="/locations/<%= location._id %>/comments/new">Add Comment</a>
+                              </a>
+                          </div>
+                          <!-- card header end -->
+      
+                          <!-- Card body -->
+                          <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+                            data-parent="#accordionEx" >
+                              <div class="card-body" id="comments-card">
+                                  <% location.comments.forEach(function(comment){ %>
+                                  <p><%= comment.text %></p><br>
+                                  <div class="text-right">
+                                      <p class="font-weight-bold raleway" id="comment-author-date"><%= comment.author %></p>
+                                      <p> - <%= comment.added.toDateString() %></p>
+                                  </div>
+                                  <hr>
+                                  <% }) %>                
+                              </div>
+                          </div>
+                          <!-- card body end -->
+      
+                      </div>
+                      <!-- Accordion card end -->
+        
+                  </div>
+                  <!-- Accordion wrapper end -->
+        
+              </div>
+              <!-- comments end -->
+
           </div>
-          <hr>
-          <!-- <div id="links">
-                    <% if(location.website) { %>
-                        <li class="link-list web-links">
-                          <i class="fas fa-globe"></i>
-                          <strong>&nbsp Website</strong
-                          ><a href="<%= location.website %>">: &nbsp <%= location.website %></a>
-                        </li>
-                        <% } %> <% if(location.menu) { %>
-                        <li class="link-list web-links">
-                          <i class="fas fa-utensils circle-icon"></i>
-                          <strong>&nbsp &nbspMenu</strong>
-                          <a href="<%= location.menu %>">: &nbsp <%= location.menu %></a>
-                        </li>
-                        <% } %> <% if(location.yelp) { %>
-                        <li class="link-list web-links">
-                          <i class="fab fa-yelp circle-icon"></i>
-                          <strong>&nbsp &nbspYelp</strong>
-                          <a href="<%= location.yelp %>">: &nbsp <%= location.yelp %></a>
-                        </li>
-
-                        <% } %>
-                        <hr> 
-              
-            </div>  
- -->
-        </div>
-        <p><%= location.description %></p>
-        <hr>
 
       </div>
-      <div class="well order-md-last">
-  
-
-
-        <!--Accordion wrapper-->
-<div class="accordion md-accordion bg-white" id="accordionEx" role="tablist" aria-multiselectable="true">
-
-    <!-- Accordion card -->
-    <div class="card">
-  
-      <!-- Card header -->
-      <div class="card-header" role="tab" id="headingOne1">
-        <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
-          aria-controls="collapseOne1">
-          <h6 class="mb-0 raleway font-weight-bold">
-            Comments &nbsp<span id="comments-view-hide">view/hide</span>
-          </h6>
-              <a class="btn btn-sm btn-dark font-weight-bold" id="comments-add" href="/locations/<%= location._id %>/comments/new">Add Comment</a>
-
-        </a>
-      </div>
-  
-      <!-- Card body -->
-      <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
-        data-parent="#accordionEx" >
-        <div class="card-body" id="comments-card">
-            <% location.comments.forEach(function(comment){ %>
-                      <p><%= comment.text %></p><br>
-                      <p class="font-weight-bold"><%= comment.author %> - <span><%= comment.added.toDateString() %></span></p>
-
-              <hr>
-          <% }) %>                
-
-        </div>
-      </div>
-  
-    </div>
-    <!-- Accordion card -->
-    
-  </div>
-  <!-- Accordion wrapper -->
-    
-    </div>
-  </div>
-
-    <div class="col-md-5">
-      <p class="lead raleway font-weight-bold">Info</p>
-      <div class="list-group mb-1 list-group-flush">
-        <li class="list-group-item info-list">
-          <i class="fas fa-map-signs mr-3"></i>
-          <p><%= location.neighborhood %></p>
-        </li>
-        <li class="list-group-item info-list">
-          <i class="fas fa-map-marker-alt mr-3"></i>
-
-          <p class="address-show">
-              <address>
-                <%= location.address.street %><br />
-                <span id="city-state-zip">
-                        <%= location.address.city %>&nbsp<%= location.address.state
-                        %>&nbsp<%= location.address.zip %> 
-                </span>       
-              </address>
-          </p>
-        </li>
-        <li class="list-group-item info-list">
-          <i class="fas fa-phone mr-3"></i>
-          <p><%= location.phoneNumber %></p>
-        </li>
-      </div>
-      <p class="lead raleway font-weight-bold">Keto Options</p>
-      <div class="list-group mb-1 list-group-flush">
-        <li class="list-group-item">Option 1</li>
-        <li class="list-group-item">Option 2</li>
-        <li class="list-group-item">Option 3</li>
-      </div>
-      <p class="lead raleway font-weight-bold">Links</p>
-      <div class="list-group mb-1 list-group-flush">
-          <li class="list-group-item">
-                <i class="fas fa-globe mr-3"></i>
-                <a href="<%= location.website %>"></a><%= location.website %></a>
-
-          </li>
-          <li class="list-group-item">
-                <i class="fas fa-utensils circle-icon mr-3"></i>
-                <a href="<%= location.menu %>"><%= location.menu %></a>
-
-          </li>
-          <li class="list-group-item">
-                <i class="fab fa-yelp circle-icon mr-3 text-danger"></i>
-                <a href="<%= location.yelp %>"><%= location.yelp %></a>
-
-          </li>
-      </div>
-    </div>
-  </div>
+      <!-- row 2 end -->
 
 </div>
+<!-- page container end -->
 
 <%- include ('../partials/footer') -%>
 
