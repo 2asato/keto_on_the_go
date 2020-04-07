@@ -138,7 +138,7 @@
                                       Comments &nbsp
                                       <span id="comments-view-hide">view/hide</span>
                                   </h6>
-                                  <a class="btn btn-sm btn-dark font-weight-bold" id="comments-add" href="/locations/<%= location._id %>/comments/new">Add Comment</a>
+                                  <a class="btn btn-sm btn-dark raleway" id="comments-add" href="/locations/<%= location._id %>/comments/new">Add Comment</a>
                               </a>
                           </div>
                           <!-- card header end -->
@@ -147,6 +147,7 @@
                           <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
                             data-parent="#accordionEx" >
                               <div class="card-body" id="comments-card">
+                                  <!-- show all comments for location -->
                                   <% location.comments.forEach(function(comment){ %>
                                   <p><%= comment.text %></p><br>
                                   <div class="text-right">
