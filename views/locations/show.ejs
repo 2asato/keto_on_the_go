@@ -58,7 +58,7 @@
 
                 <!-- info -->
                 <p class="lead raleway font-weight-bold">Info</p>
-                <div class="list-group mb-1 list-group-flush">
+                <div class="list-group mb-1 list-group-flush mb-4">
                     <li class="list-group-item info-list">
                         <i class="fas fa-map-signs mr-3"></i>
                         <p><%= location.neighborhood %></p>
@@ -83,7 +83,7 @@
 
                 <!-- menu -->
                 <p class="lead raleway font-weight-bold">Keto Options</p>
-                <div class="list-group mb-1 list-group-flush">
+                <div class="list-group mb-1 list-group-flush mb-4">
                     <li class="list-group-item">Option 1</li>
                     <li class="list-group-item">Option 2</li>
                     <li class="list-group-item">Option 3</li>
@@ -92,7 +92,7 @@
 
                 <!-- links -->
                 <p class="lead raleway font-weight-bold">Links</p>
-                <div class="list-group mb-1 list-group-flush">
+                <div class="list-group mb-1 list-group-flush mb-4">
                     <li class="list-group-item">
                         <i class="fas fa-globe mr-3"></i>
                         <a href="<%= location.website %>"><%= location.website %></a>
@@ -118,7 +118,7 @@
       <!-- row 1 end -->
 
       <!-- row 2 -->
-      <div class="row">
+      <div class="row mt-1">
 
           <div class="col">
               <!-- comments -->
@@ -176,6 +176,37 @@
 
 </div>
 <!-- page container end -->
+
+<!-- google maps -->
+<script>
+    function initMap() {
+      var lat = <%= location.lat %>;
+      var lng = <%= location.lng %>;
+      var center = {lat: lat, lng: lng };
+      var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: center,
+          scrollwheel: false
+      });
+      var contentString = `
+        <strong><%= location.name %><br />
+        <%= location.location %></strong>
+        <p><%= location.description %></p>
+      `
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+      var marker = new google.maps.Marker({
+          position: center,
+          map: map
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnKyE9jIZdIgG0_SzZh73nRY1B4970SHY&callback=initMap"></script>
+<!-- google maps end -->
 
 <%- include ('../partials/footer') -%>
 
