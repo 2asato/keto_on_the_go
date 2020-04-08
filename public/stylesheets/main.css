@@ -68,6 +68,9 @@ a {
       font-size: .4rem;
   }
 
-
+#map {
+    height: 200px;
+    width: 100%;
+}
 
 

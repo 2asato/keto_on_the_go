@@ -56,9 +56,27 @@
             <!-- info, menu, links, map -->
             <div class="col">
 
+                <!-- links -->
+                <p class="lead raleway font-weight-bold">Links</p>
+                <div class="list-group list-group-flush mb-4">
+                    <li class="list-group-item">
+                        <i class="fas fa-globe mr-3"></i>
+                        <a href="<%= location.website %>"><%= location.website %></a>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-utensils circle-icon mr-3"></i>
+                        <a href="<%= location.menu %>"><%= location.menu %></a>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fab fa-yelp circle-icon mr-3 text-danger"></i>
+                        <a href="<%= location.yelp %>"><%= location.yelp %></a>
+                    </li>
+                </div>
+                <!-- links end -->
+
                 <!-- info -->
                 <p class="lead raleway font-weight-bold">Info</p>
-                <div class="list-group mb-1 list-group-flush mb-4">
+                <div class="list-group list-group-flush mb-4">
                     <li class="list-group-item info-list">
                         <i class="fas fa-map-signs mr-3"></i>
                         <p><%= location.neighborhood %></p>
@@ -81,32 +99,17 @@
                 </div>
                 <!-- info end -->
 
+                <div id="map"></div>
+
                 <!-- menu -->
                 <p class="lead raleway font-weight-bold">Keto Options</p>
-                <div class="list-group mb-1 list-group-flush mb-4">
+                <div class="list-group list-group-flush mb-4">
                     <li class="list-group-item">Option 1</li>
                     <li class="list-group-item">Option 2</li>
                     <li class="list-group-item">Option 3</li>
                 </div>
                 <!-- menu end -->
 
-                <!-- links -->
-                <p class="lead raleway font-weight-bold">Links</p>
-                <div class="list-group mb-1 list-group-flush mb-4">
-                    <li class="list-group-item">
-                        <i class="fas fa-globe mr-3"></i>
-                        <a href="<%= location.website %>"><%= location.website %></a>
-                    </li>
-                    <li class="list-group-item">
-                        <i class="fas fa-utensils circle-icon mr-3"></i>
-                        <a href="<%= location.menu %>"><%= location.menu %></a>
-                    </li>
-                    <li class="list-group-item">
-                        <i class="fab fa-yelp circle-icon mr-3 text-danger"></i>
-                        <a href="<%= location.yelp %>"><%= location.yelp %></a>
-                    </li>
-                </div>
-                <!-- links end -->
             
               </div>
               <!-- info, menu, links, map end -->
