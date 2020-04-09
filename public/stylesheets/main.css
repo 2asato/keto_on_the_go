@@ -68,6 +68,8 @@ a {
       font-size: .4rem;
   }
 
-
+input:required, select:required {
+    background-color: lightgrey;
+}
 
 
