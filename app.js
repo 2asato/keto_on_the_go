@@ -6,6 +6,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     passport = require('passport'),
     LocalStrategy = require('passport-local'),
+    methodOverride = require('method-override'),
     Location = require('./models/location'),
     Comment = require('./models/comment'),
     User = require('./models/user')
@@ -16,6 +17,7 @@ mongoose.connect('mongodb://localhost/seattle_on_keto', { useNewUrlParser: true,
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride('_method'));
 
 // passport configuration
 app.use(require('express-session')({
@@ -96,6 +98,17 @@ app.get('/locations/:id/edit', function(req, res) {
     })
 })
 
+// location update route
+app.put('/locations/:id', function(req, res) {
+    // find and update correct location
+    Location.findByIdAndUpdate(req.params.id, req.body.location, function(err, updatedLocation) {
+        if(err) {
+            res.redirect('/locations');
+        } else {
+            res.redirect('/locations/' + req.params.id)
+        }
+    })
+})
 
 
 // ===================

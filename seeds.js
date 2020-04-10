@@ -7,6 +7,7 @@ var data = [
         name: 'The Walrus and the Carpenter',
         neighborhood: 'Ballard',
         restaurantType: 'Restaurant',
+        serves: 'Breakfast, Lunch, Dinner',
         foodType: 'Seafood',
         description: 'The Walrus remains a neighborhood spot — a friendly, often bustling, always casual, place to enjoy icy cold piles of oysters, delicious plates, wines by the glass, beer, cider, and smart cocktails.',
         menuItem: {
@@ -21,7 +22,7 @@ var data = [
         yelp: 'www.yelp.com/biz/the-walrus-and-the-carpenter-seattle',
         kids: 'Yes',
         image: 'https://www.thewalrusbar.com/uploads/_900x900_fit_center-center_85_none/Walrus01.jpg',
-        hours: 'Mon - Sun  4pm - 10pm',
+        daysOpen: 'Monday',
         phoneNumber: '(206)395-9227',
         address: {
             street: '4743 Ballard ave NW',
