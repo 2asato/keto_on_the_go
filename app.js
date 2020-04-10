@@ -92,7 +92,7 @@ app.get('/locations/:id', function(req, res) {
 // location edit route
 app.get('/locations/:id/edit', function(req, res) {
     Location.findById(req.params.id, function(err, foundLocation) {
-        res.send('soon to be location edit page')
+        res.render('locations/edit', { location: foundLocation })
     })
 })
 
