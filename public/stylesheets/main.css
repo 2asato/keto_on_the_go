@@ -68,8 +68,8 @@ a {
       font-size: .4rem;
   }
 
-input:required, select:required {
-    background-color: lightgrey;
+.form-control {
+    background-color: #f9f9f9;
 }
 
 
