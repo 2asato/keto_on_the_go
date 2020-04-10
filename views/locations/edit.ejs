@@ -1,5 +1,208 @@
 <%- include ('../partials/header') -%>
 
-<h1>Edit Locations Page</h1>
+<div class="container w-75 mt-5">
+        <h1 class="font-weight-bold">Edit <%= location.name %></h1>
+        <form action="/locations" method="POST">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label class="raleway" for="inputEmail4">Name *</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="Name"
+                name="location[name]"
+                value="<%= location.name %>"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label class="raleway" for="">Image *</label>
+              <input
+                class="form-control form-control-sm"
+                type="text"
+                placeholder="Image URL"
+                name="location[image]"
+                value="<%= location.image %>"
+                required
+              />
+            </div>
+          </div>
+      
+          <div class="form-row">
+            <div class="form-group col-md-7">
+              <label class="raleway" for="inputAddress">Address</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="1234 Main St"
+                name="location[address.street]"
+                value="<%= location.address.street %>"
+              />
+            </div>
+            <div class="form-group col-md-5">
+              <label class="raleway" for="inputCity">City</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                name="location[address.city]"
+                value="<%= location.address.city %>"
+              />
+            </div>
+          </div>
+      
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label class="raleway" for="inputState">State</label>
+              <select
+                class="form-control form-control-sm"
+                name="location[address.state]"
+                value="<%= location.address.state %>"
+              >
+                <option selected value="WA">WA</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label class="raleway" for="inputZip">Zip</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                name="location[address.zip]"
+                value="<%= location.address.zip %>"
+              />
+            </div>
+            <div class="form-group col-md-4">
+              <label class="raleway" for="inputPassword4">Neighborhood *</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="Neighborhood"
+                name="location[neighborhood]"
+                value="<%= location.neighborhood %>"
+                required
+              />
+            </div>
+            <div class="form-group col-md-4">
+              <label class="raleway" for="inputPassword4">Phone #</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="(206)123-4567"
+                name="location[phoneNumber]"
+                value="<%= location.phoneNumber %>"
+              />
+            </div>
+          </div>
+      
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label class="raleway" for="inputEmail4">Type of Location *</label>
+              <select
+                class="form-control form-control-sm"
+                name="location[restaurantType]"
+                value="<%= location.restaurantType %>"
+                required
+              >
+                <!-- <option selected>Choose one</option> -->
+                <option value="Restaurant">Restaurant</option>
+                <option value="Food Truck">Food Truck</option>
+                <option value="Brewery">Brewery</option>
+              </select>
+            </div>
+            <div class="form-group col-md-8">
+              <label class="raleway" for="inputPassword4">Type of Food</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="American, Mexican, Chinese, etc."
+                name="location[foodType]"
+                value="<%= location.foodType %>"
+              />
+            </div>
+          </div>
+      
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label class="raleway" for="">Days of Week Open</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="M,T,W,Th,F,Sa,Su"
+                name="location[daysOpen]"
+                value="<%= location.daysOpen %>"
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label class="raleway" for="">Serves</label>
+              <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="Breakfast, Lunch, Dinner"
+                name="location[serves]"
+                value="<%= location.serves %>"
+              />
+            </div>
+        </div>
 
-<%- include ('../partials/footer') -%>
+        <div class="form-group">
+          <label class="raleway" for="inputDescription">Description *</label>
+          <textarea
+            class="form-control form-control-sm"
+            cols="55"
+            rows="3"
+            name="location[description]"
+            value="<%= location.description %>"
+            required
+          ><%= location.description %></textarea>
+        </div>
+    
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label class="raleway" for="">Website *</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              placeholder="http://example.com"
+              name="location[website]"
+              value="<%= location.website %>"
+              required
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label class="raleway" for="">Menu</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              placeholder="http://example.com"
+              name="location[menu]"
+              value="<%= location.menu %>"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label class="raleway" for="">Yelp</label>
+            <input
+              class="form-control form-control-sm"
+              type="text"
+              placeholder="Yelp URL"
+              name="location[yelp]"
+              value="<%= location.yelp %>"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label class="raleway" for="">Kid Friendly</label>
+            <select class="form-control form-control-sm" name="location[kids]" value="<%= location.kids %>"
+                    ">
+              <!-- <option selected>Choose one</option> -->
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+    
+        <button class="btn btn-md btn-default btn-block btn-dark">
+            Submit
+          </button>
+      </form>
+    </div>
+    
+    <%- include ('../partials/footer') -%>
+    
