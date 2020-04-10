@@ -8,6 +8,7 @@ var express = require('express'),
     LocalStrategy = require('passport-local'),
     Location = require('./models/location'),
     Comment = require('./models/comment'),
+    User = require('./models/user')
     seedDB = require('./seeds');
 
 // connect mongoose
@@ -88,6 +89,13 @@ app.get('/locations/:id', function(req, res) {
     })
 })
 
+// location edit route
+app.get('/locations/:id/edit', function(req, res) {
+    Location.findById(req.params.id, function(err, foundLocation) {
+        res.send('soon to be location edit page')
+    })
+})
+
 
 
 // ===================
@@ -128,6 +136,8 @@ app.post('/locations/:id/comments', function(req, res) {
         }
     })
 })
+
+
 
 
 
