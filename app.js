@@ -169,7 +169,7 @@ app.post('/locations/:id/comments', function(req, res) {
 
 // signup form route
 app.get('/signup', function(req, res) {
-    res.send('soon to be signup page')
+    res.render('signup')
 })
 
 
