@@ -110,6 +110,17 @@ app.put('/locations/:id', function(req, res) {
     })
 })
 
+// location delete route
+app.delete('/locations/:id', function(req, res) {
+    // find and delete correct location
+    Location.findByIdAndRemove(req.params.id, function(err, ) {
+        if(err) {
+            res.redirect('/loations')
+        } else {
+            res.redirect('/locations')
+        }
+    })
+})
 
 // ===================
 // comments routes
