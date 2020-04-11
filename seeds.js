@@ -17,9 +17,9 @@ var data = [
             // price: { type: Currency }
             image: 'https://www.thewalrusbar.com/uploads/_900x900_fit_center-center_85_none/walrus-photo-1.jpg'
         },
-        website: 'www.thewalrusbar.com/',
-        menu: 'www.thewalrusbar.com/menu/',
-        yelp: 'www.yelp.com/biz/the-walrus-and-the-carpenter-seattle',
+        website: 'thewalrusbar.com/',
+        menu: 'thewalrusbar.com/menu/',
+        yelp: 'yelp.com/biz/the-walrus-and-the-carpenter-seattle',
         kids: 'Yes',
         image: 'https://www.thewalrusbar.com/uploads/_900x900_fit_center-center_85_none/Walrus01.jpg',
         daysOpen: 'Monday',
@@ -46,8 +46,8 @@ var data = [
             price: 2700,
             image: 'https://images.squarespace-cdn.com/content/v1/574335cf59827e45443e86b7/1481661521133-9GAVAI1T5MZ4ZVKZWAA8/ke17ZwdGBToddI8pDm48kFyD7pzB8zoMIVY5aiUuFlp7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jG2lbcDYBOeMi4OFSYem8DMb5PTLoEDdB05UqhYu-xbnSznFxIRsaAU-3g5IaylIg/The+Pink+Door-4.jpg?format=1500w',
         },
-        website: 'www.thepinkdoor.net/',
-        menu: 'www.thepinkdoor.net/menus',
+        website: 'thepinkdoor.net/',
+        menu: 'thepinkdoor.net/menus',
         kids: 'Yes',
         image: 'https://images.squarespace-cdn.com/content/v1/574335cf59827e45443e86b7/1503937961211-E9WF95ZHXPJEO11Z5PIM/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/4A3A4021.jpg',
         hours: 'Mon - Thu  11:30pm - 11:30pm, Fri - Sat  11:30pm - 1am, Sun  4pm - 10pm',
