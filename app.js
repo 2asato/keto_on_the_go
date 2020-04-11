@@ -122,6 +122,7 @@ app.delete('/locations/:id', function(req, res) {
     })
 })
 
+
 // ===================
 // comments routes
 // ====================
@@ -159,6 +160,16 @@ app.post('/locations/:id/comments', function(req, res) {
             })
         }
     })
+})
+
+
+// ================
+// auth routes
+// ==================
+
+// signup form route
+app.get('/signup', function(req, res) {
+    res.send('soon to be signup page')
 })
 
 
