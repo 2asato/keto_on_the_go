@@ -1,6 +1,26 @@
 <%- include ('./partials/header') -%>
 
-
+<div class="container w-75 mt-5">
+    <h3 class="raleway font-weight-bold">Sign Up</h3>
+    <form action="/signup" method="POST">
+            <div class="form-group">
+                <label class="raleway" for="">Email</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Email address">  
+            </div> 
+            <div class="form-group">
+                <label class="raleway" for="">Username</label>
+                <input class="form-control form-control-sm" type="text">      
+            </div>
+            <div class="form-group">
+                <label class="raleway" for="">Password</label>
+                <input class="form-control form-control-sm" type="password" name="password" >
+            </div>
+            <button class="btn btn-md btn-default btn-block btn-dark mt-3">
+                    Submit
+            </button>
+        
+    </form>
+</div>
 
 <%- include ('./partials/footer') -%>
 
