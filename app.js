@@ -172,6 +172,25 @@ app.get('/signup', function(req, res) {
     res.render('signup')
 })
 
+// handle signup logic
+app.post('/signup', function(req, res) {
+    var newUser = new User(
+        { 
+            username: req.body.username,
+            email: req.body.email 
+        }
+    );
+    User.register(newUser, req.body.password, function(err, user) {
+        if(err) {
+            return res.render('signup')
+        } else {
+            passport.authenticate('local')(req, res, function() {
+                req.redirect('/locations');
+            })
+        }
+    })
+})
+
 
 
 
