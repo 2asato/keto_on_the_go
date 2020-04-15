@@ -201,6 +201,15 @@ app.get('/signin', function(req, res) {
     res.render('signin')
 })
 
+// handle signin logic
+app.post('/signin', passport.authenticate('local', 
+    { 
+        successRedirect: '/locations', 
+        failureRedirect: '/signin'
+    }), function(req, res) {
+
+})
+
 
 
 
