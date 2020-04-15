@@ -59,7 +59,7 @@ app.get('/locations', function(req, res) {
             console.log(err);
             
         } else {
-            res.render('locations/index', { locations:allLocations });
+            res.render('locations/index', { locations: allLocations, currentUser: req.user });
 
         }
     })
@@ -194,6 +194,11 @@ app.post('/signup', function(req, res) {
             res.redirect('/locations');
         })
     })
+})
+
+// signin form route
+app.get('/signin', function(req, res) {
+    res.render('signin')
 })
 
 
