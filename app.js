@@ -210,6 +210,12 @@ app.post('/signin', passport.authenticate('local',
 
 })
 
+// signout route
+app.get('/signout', function(req, res) {
+    req.logOut();
+    res.redirect('/locations');
+})
+
 
 
 
