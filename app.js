@@ -12,15 +12,19 @@ var express = require('express'),
     User = require('./models/user')
     seedDB = require('./seeds');
 
-var locationRoutes = require('./routes/locations'),
-    commentRoutes = require('./routes/comments')
 
-// connect mongoose
+var locationRoutes = require('./routes/locations'),
+    commentRoutes = require('./routes/comments'),
+    indexRoutes = require('./routes/index')
+
+
+    // connect mongoose
 mongoose.connect('mongodb://localhost/seattle_on_keto', { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride('_method'));
+
 
 // passport configuration
 app.use(require('express-session')({
@@ -35,11 +39,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
 // use currentUser on all pages
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
     next();
 })
+
 
 // run seedDB
 seedDB();
@@ -51,70 +57,10 @@ app.get('/', function(req, res) {
 })
 
 
-
-
-
-
-// ================
-// auth routes
-// ==================
-
-// signup form route
-app.get('/signup', function(req, res) {
-    res.render('signup')
-})
-
-// handle signup logic
-app.post('/signup', function(req, res) {
-    var newUser = new User(
-        { 
-            username: req.body.username,
-            email: req.body.email 
-        }
-    );
-    User.register(newUser, req.body.password, function(err, user) {
-        if(err) {
-            return res.render('signup')
-        } 
-            passport.authenticate('local')(req, res, function() {
-            res.redirect('/locations');
-        })
-    })
-})
-
-// signin form route
-app.get('/signin', function(req, res) {
-    res.render('signin')
-})
-
-// handle signin logic
-app.post('/signin', passport.authenticate('local', 
-    { 
-        successRedirect: '/locations', 
-        failureRedirect: '/signin'
-    }), function(req, res) {
-
-})
-
-// signout route
-app.get('/signout', function(req, res) {
-    req.logOut();
-    res.redirect('/locations');
-})
-
-
-// middleware
-function isSignedIn(req, res, next) {
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect('/signin');
-}
-
-
 // requiring routes
 app.use(locationRoutes);
 app.use(commentRoutes);
+app.use(indexRoutes);
 
 
 // Tell Express to listen for requests (start server)
