@@ -147,7 +147,7 @@ app.get('/locations/:id/comments/new', isSignedIn, function(req, res) {
 })
 
 // create comments route
-app.post('/locations/:id/comments', function(req, res) {
+app.post('/locations/:id/comments', isSignedIn, function(req, res) {
     // lookup location using id
     Location.findById(req.params.id, function(err, location) {
         if(err) {
