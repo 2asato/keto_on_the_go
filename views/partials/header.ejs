@@ -40,15 +40,21 @@
                     <!-- <li class="nav-item">
                         <a href="#" class="nav-link raleway"></a>
                     </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link raleway" href="/signin">Sign In <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link raleway" href="/signup">Sign Up</a>
-                    </li>   
-                    <li class="nav-item">
-                        <a class="nav-link raleway" href="/signout">Sign Out</a>
-                    </li>      
+                    <% if (!currentUser) { %>
+                        <li class="nav-item">
+                            <a class="nav-link raleway" href="/signin">Sign In <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link raleway" href="/signup">Sign Up</a>
+                        </li> 
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link raleway">Signed In As <%= currentUser.username %></a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link raleway" href="/signout">Sign Out</a>
+                        </li>
+                    <% } %>      
                 </ul>
             </div>
         </nav>
