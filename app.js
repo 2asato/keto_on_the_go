@@ -134,7 +134,7 @@ app.delete('/locations/:id', function(req, res) {
 // ====================
 
 // new comment page
-app.get('/locations/:id/comments/new', function(req, res) {
+app.get('/locations/:id/comments/new', isSignedIn, function(req, res) {
     // find location by id
     Location.findById(req.params.id, function(err, location) {
         if(err) {
@@ -146,6 +146,7 @@ app.get('/locations/:id/comments/new', function(req, res) {
     })
 })
 
+// create comments route
 app.post('/locations/:id/comments', function(req, res) {
     // lookup location using id
     Location.findById(req.params.id, function(err, location) {
@@ -215,6 +216,15 @@ app.get('/signout', function(req, res) {
     req.logOut();
     res.redirect('/locations');
 })
+
+
+// middleware
+function isSignedIn(req, res, next) {
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/signin');
+}
 
 
 
