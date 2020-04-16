@@ -12,7 +12,8 @@ var express = require('express'),
     User = require('./models/user')
     seedDB = require('./seeds');
 
-var locationRoutes = require('./routes/locations')
+var locationRoutes = require('./routes/locations'),
+    commentRoutes = require('./routes/comments')
 
 // connect mongoose
 mongoose.connect('mongodb://localhost/seattle_on_keto', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -52,45 +53,6 @@ app.get('/', function(req, res) {
 
 
 
-// ===================
-// comments routes
-// ====================
-
-// new comment page
-app.get('/locations/:id/comments/new', isSignedIn, function(req, res) {
-    // find location by id
-    Location.findById(req.params.id, function(err, location) {
-        if(err) {
-            console.log(err);
-            
-        } else {
-            res.render('comments/new', { location: location })
-        }
-    })
-})
-
-// create comments route
-app.post('/locations/:id/comments', isSignedIn, function(req, res) {
-    // lookup location using id
-    Location.findById(req.params.id, function(err, location) {
-        if(err) {
-            console.log(err);
-            res.redirect('/locations')
-        } else {
-            // create new comment
-            Comment.create(req.body.comment, function(err, comment) {
-                if(err) {
-                    console.log(err);
-                    
-                } else {
-                    location.comments.push(comment);
-                    location.save();                  
-                    res.redirect('/locations/' + location._id);
-                }
-            })
-        }
-    })
-})
 
 
 // ================
@@ -152,6 +114,7 @@ function isSignedIn(req, res, next) {
 
 // requiring routes
 app.use(locationRoutes);
+app.use(commentRoutes);
 
 
 // Tell Express to listen for requests (start server)
