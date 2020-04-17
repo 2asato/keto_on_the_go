@@ -158,7 +158,7 @@
                                   <% location.comments.forEach(function(comment){ %>
                                   <p><%= comment.text %></p><br>
                                   <div class="text-right">
-                                      <p class="font-weight-bold raleway" id="comment-author-date"><%= comment.author %></p>
+                                      <p class="font-weight-bold raleway" id="comment-author-date"><%= comment.author.username %></p>
                                       <p> - <%= comment.added.toDateString() %></p>
                                   </div>
                                   <hr>
