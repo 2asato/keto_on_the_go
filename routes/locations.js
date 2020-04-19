@@ -20,7 +20,7 @@ router.get('/locations', function(req, res) {
 })
 
 // locations create route
-router.post('/locations', function(req, res) {
+router.post('/locations', isSignedIn, function(req, res) {
     Location.create(req.body.location, function(err, newLocation) {
         if(err) {
             console.log(err);
@@ -34,7 +34,7 @@ router.post('/locations', function(req, res) {
 })
 
 // locations new route
-router.get('/locations/new', function(req, res) {
+router.get('/locations/new', isSignedIn, function(req, res) {
     res.render('locations/new')
 })
 
