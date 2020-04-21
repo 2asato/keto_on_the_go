@@ -76,3 +76,7 @@ a {
     display: inline;
 }
 
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    background-color: lightgrey;
+}
