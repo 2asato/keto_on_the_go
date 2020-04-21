@@ -115,8 +115,7 @@ function checkLocationOwnership(req, res, next){
         });
             // if not redirect
     } else {
-        res.redirect('back');
-        
+        res.redirect('back');       
     }
 }
 

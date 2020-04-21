@@ -54,6 +54,7 @@ router.post('/locations/:id/comments', isSignedIn, function(req, res) {
 })
 
 
+
 // middleware
 function isSignedIn(req, res, next) {
     if(req.isAuthenticated()){
@@ -61,6 +62,7 @@ function isSignedIn(req, res, next) {
     }
     res.redirect('/signin');
 }
+
 
 
 module.exports = router;
