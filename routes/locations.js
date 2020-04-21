@@ -26,6 +26,11 @@ router.post('/locations', isSignedIn, function(req, res) {
             console.log(err);
             res.render('locations/new')
         } else {
+            // add username and id to post
+            newLocation.author.username = req.user.username;
+            newLocation.author.id = req.user._id;
+            console.log(req.user.username + ' ' + req.user._id);
+            
             newLocation.save();
             console.log(newLocation);
             res.redirect('locations')
