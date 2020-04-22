@@ -90,12 +90,14 @@
                     <li class="list-group-item info-list">
                         <i class="fas fa-map-marker-alt mr-3"></i>
                         <p class="address-show">
+                            <% if ((location.address.city) && (location.address.state) && (location.address.zip)) { %>
                             <address>
                                 <%= location.address.street %><br />
                                 <span id="city-state-zip">
                                     <%= location.address.city %>&nbsp<%= location.address.state %>&nbsp<%= location.address.zip %> 
-                              </span>       
+                              </span>  
                             </address>
+                            <% } %>     
                         </p>
                     </li>
                     <li class="list-group-item info-list">
