@@ -59,8 +59,10 @@ router.get('/locations/:id/comments/:comment_id/edit', function(req, res) {
         if (err || !foundLocation) {
             return res.redirect('back');
         }
-        Comment.findById(req.params.comment_id, function(req, foundComment) {
+        Comment.findById(req.params.comment_id, function(err, foundComment) {
             if (err) {
+                console.log(err);
+                
                 res.redirect('back')
             } else {
                 res.render('comments/edit', { location_id: req.params.id, comment: foundComment});
