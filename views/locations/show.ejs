@@ -162,7 +162,8 @@
                                   <p><%= comment.text %></p><br>
                                   <div class="text-right">
                                       <p class="font-weight-bold raleway" id="comment-author-date"><%= comment.author.username %></p>
-                                      <p> - <%= comment.added.toDateString() %></p>
+                                      <p> - <%= comment.added.toDateString() %></p><br>
+                                      <a class="btn btn-sm btn-dark raleway mt-2 my-buttons" href="/locations/<%= location._id %>/comments/<%= comment._id %>/edit">Edit Comment</a>
                                   </div>
                                   <hr>
                                   <% }) %>                
