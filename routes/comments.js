@@ -53,6 +53,23 @@ router.post('/locations/:id/comments', isSignedIn, function(req, res) {
     })
 })
 
+// edit comments route
+router.get('/locations/:id/comments/:comment_id/edit', function(req, res) {
+    Location.findById(req.params.id, function(err, foundLocation) {
+        if (err || !foundLocation) {
+            return res.redirect('back');
+        }
+        Comment.findById(req.params.comment_id, function(req, foundComment) {
+            if (err) {
+                res.redirect('back')
+            } else {
+                res.render('comments/edit', { location_id: req.params.id, comment: foundComment});
+            }
+        })
+    })
+})
+
+
 
 
 // middleware
