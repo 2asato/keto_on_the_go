@@ -82,6 +82,16 @@ router.put('/locations/:id/comments/:comment_id', function(req, res) {
     })
 })
 
+// delete comments route
+router.delete('/locations/:id/comments/:comment_id', function(req, res) {
+    Comment.findByIdAndRemove(req.params.comment_id, function(err) {
+        if (err) {
+            res.redirect('back');
+        } else {
+            res.redirect('/locations/' + req.params.id);
+        }
+    })
+})
 
 
 
