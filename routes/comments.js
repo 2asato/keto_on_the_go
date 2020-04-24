@@ -71,6 +71,17 @@ router.get('/locations/:id/comments/:comment_id/edit', function(req, res) {
     })
 })
 
+// update comments route
+router.put('/locations/:id/comments/:comment_id', function(req, res) {
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, foundComment) {
+        if (err) {
+            res.redirect('back');
+        } else {
+            res.redirect('/locations/' + req.params.id)
+        }
+    })
+})
+
 
 
 
