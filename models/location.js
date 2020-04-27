@@ -8,13 +8,12 @@ var locationSchema = new mongoose.Schema({
     restaurantType: String,
     foodType: String,
     description: String,
-    menuItem: {
-        name: String,
-        description: String,
-        carbs: Number,
-        price: String,
-        image: String
-    },
+    menuItems: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'MenuItem'
+        }
+    ],
     website: String,
     menu: String,
     yelp: String,
