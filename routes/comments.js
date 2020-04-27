@@ -54,7 +54,7 @@ router.post('/locations/:id/comments', isSignedIn, function(req, res) {
 })
 
 // edit comments route
-router.get('/locations/:id/comments/:comment_id/edit', function(req, res) {
+router.get('/locations/:id/comments/:comment_id/edit', checkCommentOwnership, function(req, res) {
     Location.findById(req.params.id, function(err, foundLocation) {
         if (err || !foundLocation) {
             return res.redirect('back');
@@ -72,7 +72,7 @@ router.get('/locations/:id/comments/:comment_id/edit', function(req, res) {
 })
 
 // update comments route
-router.put('/locations/:id/comments/:comment_id', function(req, res) {
+router.put('/locations/:id/comments/:comment_id', checkCommentOwnership, function(req, res) {
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, foundComment) {
         if (err) {
             res.redirect('back');
@@ -83,7 +83,7 @@ router.put('/locations/:id/comments/:comment_id', function(req, res) {
 })
 
 // delete comments route
-router.delete('/locations/:id/comments/:comment_id', function(req, res) {
+router.delete('/locations/:id/comments/:comment_id', checkCommentOwnership, function(req, res) {
     Comment.findByIdAndRemove(req.params.comment_id, function(err) {
         if (err) {
             res.redirect('back');
@@ -101,6 +101,29 @@ function isSignedIn(req, res, next) {
         return next();
     }
     res.redirect('/signin');
+}
+
+function checkCommentOwnership(req, res, next){
+    if(req.isAuthenticated()){        
+        Comment.findById(req.params.comment_id, function(err, foundComment){
+            if(err || !foundComment){
+                res.redirect('back')
+            } else {
+                // does user own campground
+                if(foundComment.author.id.equals(req.user._id)){
+                    next();
+
+                } else {
+                    res.redirect('back');
+                }
+            }
+        });
+            // if not redirect
+    } else {
+        res.redirect('back');
+        
+    }
+
 }
 
 
