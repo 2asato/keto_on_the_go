@@ -9,13 +9,15 @@ var express = require('express'),
     methodOverride = require('method-override'),
     Location = require('./models/location'),
     Comment = require('./models/comment'),
-    User = require('./models/user')
+    User = require('./models/user'),
+    MenuItem = require('./models/menuItem'),
     seedDB = require('./seeds');
 
 
 var locationRoutes = require('./routes/locations'),
     commentRoutes = require('./routes/comments'),
-    indexRoutes = require('./routes/index')
+    indexRoutes = require('./routes/index'),
+    menuItemRoutes = require('./routes/menuItems')
 
 
     // connect mongoose
@@ -61,6 +63,7 @@ app.get('/', function(req, res) {
 app.use(locationRoutes);
 app.use(commentRoutes);
 app.use(indexRoutes);
+app.use(menuItemRoutes);
 
 
 // Tell Express to listen for requests (start server)
