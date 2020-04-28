@@ -5,7 +5,7 @@
         Add Keto Option
     </h3>
 
-    <form action="/locations/<%= location._id %>/comments" method="POST">
+    <form action="/locations/<%= location._id %>/keto-options" method="POST">
             <div class="form-group">
                 <label class="raleway" for="inputEmail4">Name *</label>
                 <input
@@ -36,7 +36,7 @@
                         type="text"
                         class="form-control form-control-sm"
                         placeholder="Image URL"
-                        name="ketoOptions[image]"
+                        name="ketoOption[image]"
                         required
                     />
                 </div>
@@ -47,7 +47,7 @@
                         type="text"
                         class="form-control form-control-sm"
                         placeholder="$"
-                        name="ketoOptions[price]"
+                        name="ketoOption[price]"
                     />
                 </div>
                 <div class="form-group col-md-2">
@@ -56,7 +56,7 @@
                         type="text"
                         class="form-control form-control-sm"
                         placeholder="# of total carbs"
-                        name="ketoOptions[carbs]"
+                        name="ketoOption[carbs]"
                     />
                 </div>
     

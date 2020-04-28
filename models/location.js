@@ -8,10 +8,10 @@ var locationSchema = new mongoose.Schema({
     restaurantType: String,
     foodType: String,
     description: String,
-    menuItems: [
+    ketoOptions: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'MenuItem'
+            ref: 'KetoOption'
         }
     ],
     website: String,

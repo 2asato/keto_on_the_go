@@ -1,6 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    KetoOptions = require('../models/ketoOptions'),
+    KetoOption = require('../models/ketoOptions'),
     Location = require('../models/location');
 
 
@@ -15,6 +15,28 @@ router.get('/locations/:id/keto-options/new', function(req, res) {
             
         } else {
             res.render('ketoOptions/new', { location: location });
+        }
+    })
+})
+
+router.post('/locations/:id/keto-options', function(req, res) {
+    // lookup location by id
+    Location.findById(req.params.id, function(err, location) {
+        if (err) {
+            console.log(err);
+            res.redirect('/locations')
+        } else {
+            KetoOption.create(req.body.ketoOption, function(err, ketoOption) {
+                if (err) {
+                    console.log(err);
+                    
+                } else {
+                    ketoOption.save();
+                    location.ketoOptions.push(ketoOption);
+                    location.save();
+                    res.redirect('/locations/' + location._id)
+                }
+            })
         }
     })
 })
