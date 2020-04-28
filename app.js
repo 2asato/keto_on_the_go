@@ -10,14 +10,14 @@ var express = require('express'),
     Location = require('./models/location'),
     Comment = require('./models/comment'),
     User = require('./models/user'),
-    MenuItem = require('./models/menuItem'),
+    KetoOptions = require('./models/ketoOptions'),
     seedDB = require('./seeds');
 
 
 var locationRoutes = require('./routes/locations'),
     commentRoutes = require('./routes/comments'),
     indexRoutes = require('./routes/index'),
-    menuItemRoutes = require('./routes/menuItems')
+    ketoOptionRoutes = require('./routes/ketoOptions')
 
 
     // connect mongoose
@@ -63,7 +63,7 @@ app.get('/', function(req, res) {
 app.use(locationRoutes);
 app.use(commentRoutes);
 app.use(indexRoutes);
-app.use(menuItemRoutes);
+app.use(ketoOptionRoutes);
 
 
 // Tell Express to listen for requests (start server)

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 // schema
-var menuItemSchema = new mongoose.Schema({
+var ketoOptionSchema = new mongoose.Schema({
     name: String,
     description: String,
     price: String,
@@ -9,4 +9,4 @@ var menuItemSchema = new mongoose.Schema({
     carbs: Number
 })
 
-module.exports = mongoose.model('MenuItem', menuItemSchema);
+module.exports = mongoose.model('KetoOption', ketoOptionSchema);
