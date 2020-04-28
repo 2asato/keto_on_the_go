@@ -5,7 +5,7 @@ var express = require('express'),
 
 
 // ==================
-// MENUITEM ROUTES
+// KETO-OPTIONS ROUTES
 // ==================
 
 router.get('/locations/:id/keto-options/new', function(req, res) {
