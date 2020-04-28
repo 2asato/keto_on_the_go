@@ -71,5 +71,16 @@ router.put('/locations/:id/keto-options/:ketoOption_id', function(req, res) {
     })
 })
 
+// ketoOptions destroy route
+router.delete('/locations/:id/keto-options/:ketoOption_id', function(req, res) {
+    KetoOption.findByIdAndRemove(req.params.ketoOption_id, function(err) {
+        if (err) {
+            res.redirect('back')
+        } else {
+            res.redirect('/locations/' + req.params.id);
+        }
+    })
+})
+
 
 module.exports = router;

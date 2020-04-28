@@ -115,7 +115,13 @@
                 <% } %>
                 <div class="list-group list-group-flush mb-4">
                     <% location.ketoOptions.forEach(function(ketoOption){ %>
-                    <li class="list-group-item"><%= ketoOption.name %></li>
+                    <li class="list-group-item">
+                        <%= ketoOption.name %><br>
+                        <a class="btn btn-sm btn-dark raleway mt-2 my-buttons" href="/locations/<%= location._id %>/keto-options/<%= ketoOption._id %>/edit">Edit</a>
+                        <form class="delete-form" action="/locations/<%= location._id %>/keto-options/<%= ketoOption._id %>?_method=DELETE" method="POST">
+                            <input type="submit" class="btn btn-sm btn-dark raleway mt-2 my-buttons" value="Delete">
+                        </form>                                              
+                    </li>
                     <% }) %>
                 </div>
                 <!-- menu end -->
