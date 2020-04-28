@@ -15,7 +15,7 @@
                 <div class="caption-full">
                     <h3 class="raleway font-weight-bold"><a href=""><%= location.name %></a></h3>
                     <% if (currentUser) { %>
-                    <div id="edit-delete-buttons">
+                    <div id="edit-delete-buttons" class="mb-2">
                         <a class="btn btn-sm btn-dark raleway mb-2 my-buttons" href="/locations/<%= location._id %>/edit">Edit</a>
                         <form class="delete-form" action="/locations/<%= location._id %>?_method=DELETE" method="POST">
                             <button class="btn btn-sm btn-dark raleway mb-2 my-buttons">Delete</button>
