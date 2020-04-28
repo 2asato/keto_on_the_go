@@ -19,6 +19,8 @@ router.get('/locations/:id/keto-options/new', function(req, res) {
     })
 })
 
+
+// ketoOptions create route
 router.post('/locations/:id/keto-options', function(req, res) {
     // lookup location by id
     Location.findById(req.params.id, function(err, location) {
@@ -38,6 +40,22 @@ router.post('/locations/:id/keto-options', function(req, res) {
                 }
             })
         }
+    })
+})
+
+// ketoOptions edit route
+router.get('/locations/:id/keto-options/:ketoOption_id/edit', function(req, res) {
+    Location.findById(req.params.id, function(err, foundLocation) {
+        if (err || !foundLocation) {
+            return res.redirect('back');
+        } 
+        KetoOption.findById(req.params.ketoOption_id, function(err, foundKetoOption) {
+            if (err) {
+                res.redirect('back')
+            } else {
+                res.send('soon to be keto-option edit form')
+            }
+        })
     })
 })
 
