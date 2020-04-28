@@ -59,5 +59,16 @@ router.get('/locations/:id/keto-options/:ketoOption_id/edit', function(req, res)
     });
 });
 
+// ketoOptions update route
+router.put('/locations/:id/keto-options/:ketoOption_id', function(req, res) {
+    KetoOption.findByIdAndUpdate(req.params.ketoOption_id, req.body.ketoOption, function(err, updatedKetoOption) {
+        if (err) {
+            res.redirect('back');
+        } else {
+            res.redirect('/locations/' + req.params.id);
+        }
+    })
+})
+
 
 module.exports = router;
