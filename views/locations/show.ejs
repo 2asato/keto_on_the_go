@@ -114,9 +114,9 @@
                 <a class="btn btn-sm btn-dark raleway mt-2 mb-2 my-buttons" href="/locations/<%= location._id %>/keto-options/new">Add Keto Option</a>
                 <% } %>
                 <div class="list-group list-group-flush mb-4">
-                    <li class="list-group-item">Option 1</li>
-                    <li class="list-group-item">Option 2</li>
-                    <li class="list-group-item">Option 3</li>
+                    <% location.ketoOptions.forEach(function(ketoOption){ %>
+                    <li class="list-group-item"><%= ketoOption.name %></li>
+                    <% }) %>
                 </div>
                 <!-- menu end -->
 

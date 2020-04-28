@@ -65,6 +65,7 @@ router.put('/locations/:id/keto-options/:ketoOption_id', function(req, res) {
         if (err) {
             res.redirect('back');
         } else {
+            
             res.redirect('/locations/' + req.params.id);
         }
     })

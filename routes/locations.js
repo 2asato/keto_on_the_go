@@ -43,7 +43,7 @@ router.get('/locations/new', isSignedIn, function(req, res) {
 
 // location show route
 router.get('/locations/:id', function(req, res) {
-    Location.findById(req.params.id).populate('comments').exec(function(err, foundLocation) {
+    Location.findById(req.params.id).populate('comments').populate('ketoOptions').exec(function(err, foundLocation) {
         if(err) {
             console.log(err);
             res.redirect('back')
