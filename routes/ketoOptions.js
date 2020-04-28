@@ -1,5 +1,5 @@
 var express = require('express'),
-    router = express.Router(),
+    router = express.Router({mergeParams: true}),
     KetoOption = require('../models/ketoOptions'),
     Location = require('../models/location');
 
@@ -53,11 +53,11 @@ router.get('/locations/:id/keto-options/:ketoOption_id/edit', function(req, res)
             if (err) {
                 res.redirect('back')
             } else {
-                res.send('soon to be keto-option edit form')
+                res.render('ketoOptions/edit', { location_id: req.params.id, ketoOption: foundKetoOption})
             }
-        })
-    })
-})
+        });
+    });
+});
 
 
 module.exports = router;

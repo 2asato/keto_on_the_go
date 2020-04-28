@@ -1,5 +1,5 @@
 var express = require('express'),
-    router = express.Router(),
+    router = express.Router({mergeParams: true}),
     Comment = require('../models/comment'),
     Location = require('../models/location')
 
