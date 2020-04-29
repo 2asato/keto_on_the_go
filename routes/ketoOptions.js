@@ -8,7 +8,7 @@ var express = require('express'),
 // KETO-OPTIONS ROUTES
 // ==================
 
-router.get('/locations/:id/keto-options/new', function(req, res) {
+router.get('/locations/:id/keto-options/new', isSignedIn, function(req, res) {
     Location.findById(req.params.id, function(err, location) {
         if (err) {
             console.log(err);
@@ -21,7 +21,7 @@ router.get('/locations/:id/keto-options/new', function(req, res) {
 
 
 // ketoOptions create route
-router.post('/locations/:id/keto-options', function(req, res) {
+router.post('/locations/:id/keto-options', isSignedIn, function(req, res) {
     // lookup location by id
     Location.findById(req.params.id, function(err, location) {
         if (err) {
@@ -82,5 +82,16 @@ router.delete('/locations/:id/keto-options/:ketoOption_id', function(req, res) {
     })
 })
 
+
+// =============
+// MIDDLEWARE
+// =============
+
+function isSignedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/signin');
+}
 
 module.exports = router;
