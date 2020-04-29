@@ -143,8 +143,19 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer justify-content-center">
-                                            <p>Price: <%= ketoOption.price %></p>
-                                            <p>Carbs: <%= ketoOption.carbs %></p>
+                                                    <p>Price: <%= ketoOption.price %></p>
+                                                    <p>Carbs: <%= ketoOption.carbs %></p>
+
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                    <a class="btn btn-sm btn-dark raleway mr-2 my-buttons" href="/locations/<%= location._id %>/keto-options/<%= ketoOption._id %>/edit">Edit</a>
+                                                    <form class="delete-form" action="/locations/<%= location._id %>/keto-options/<%= ketoOption._id %>?_method=DELETE" method="POST">
+                                                        <input type="submit" class="btn btn-sm btn-dark raleway my-buttons" value="Delete">
+                                                    </form>                                              
+        
+
+                                            </div>
+                    
                                         </div>
                                     </div>
                                 </div>
@@ -152,10 +163,6 @@
                             <!-- modal end -->
                         </section>
                         <!-- modal section end -->
-                        <a class="btn btn-sm btn-dark raleway mt-2 my-buttons" href="/locations/<%= location._id %>/keto-options/<%= ketoOption._id %>/edit">Edit</a>
-                        <form class="delete-form" action="/locations/<%= location._id %>/keto-options/<%= ketoOption._id %>?_method=DELETE" method="POST">
-                            <input type="submit" class="btn btn-sm btn-dark raleway mt-2 my-buttons" value="Delete">
-                        </form>                                              
                     </li>
                     <% }) %>
                 </div>
