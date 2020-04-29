@@ -127,7 +127,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title pl-0"><%= ketoOption.name %></h5>
+                                            <h5 class="modal-title pl-0 raleway font-weight-bold"><%= ketoOption.name %></h5>
                                             <button class="close ml-0" type="button" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -138,13 +138,13 @@
                                                     <img class="img-fluid" src="<%= ketoOption.image %>" alt="">
                                                 </div>
                                                 <div class="col-7">
-                                                    <p><%= ketoOption.description %></p><br>
+                                                    <p><%= ketoOption.description %></p>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="modal-footer justify-content-center">
-                                            <p>Price: <%= ketoOption.price %></p>
-                                            <p>Carbs: <%= ketoOption.carbs %></p>
+                                        <div class="modal-footer">
+                                            <h6 class="mx-auto"><span class="raleway font-weight-bold">Price: &nbsp&nbsp</span> <%= ketoOption.price %></h6>
+                                            <h6 class="mx-auto"><span class="raleway font-weight-bold">Carbs: &nbsp&nbsp</span> <%= ketoOption.carbs %></h6>
                                         </div>
                                         <% if (currentUser) { %>
                                         <div class="modal-footer justify-content-center">
@@ -158,6 +158,7 @@
                                 </div>
                             </div>
                             <!-- modal end -->
+
                         </section>
                         <!-- modal section end -->
                     </li>
