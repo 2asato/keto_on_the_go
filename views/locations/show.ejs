@@ -118,12 +118,12 @@
                     <li class="list-group-item">
                         <!-- modal section-->
                         <section>
-                            <a href="#close" data-toggle="modal" data-target="#ketoOptionsModal">
+                            <a href="#close" data-toggle="modal" data-target="#ketoOption-<%= ketoOption._id %>">
                                 <%= ketoOption.name %><br>
                             </a>
 
                             <!-- modal -->
-                            <div class="modal fade" id="ketoOptionsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="ketoOption-<%= ketoOption._id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
