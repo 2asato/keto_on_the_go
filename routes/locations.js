@@ -1,6 +1,7 @@
 var express = require('express'),
     router = express.Router(),
-    Location = require('../models/location');
+    Location = require('../models/location'),
+    middleware = require('../middleware')
 
 // ======================
 // locations routes
@@ -20,7 +21,7 @@ router.get('/locations', function(req, res) {
 })
 
 // locations create route
-router.post('/locations', isSignedIn, function(req, res) {
+router.post('/locations', middleware.isSignedIn, function(req, res) {
     Location.create(req.body.location, function(err, newLocation) {
         if(err) {
             console.log(err);
@@ -38,7 +39,7 @@ router.post('/locations', isSignedIn, function(req, res) {
 })
 
 // locations new route
-router.get('/locations/new', isSignedIn, function(req, res) {
+router.get('/locations/new', middleware.isSignedIn, function(req, res) {
     res.render('locations/new')
 })
 
@@ -56,7 +57,7 @@ router.get('/locations/:id', function(req, res) {
 })
 
 // location edit route
-router.get('/locations/:id/edit', checkLocationOwnership, function(req, res) {
+router.get('/locations/:id/edit', middleware.checkLocationOwnership, function(req, res) {
     Location.findById(req.params.id, function(err, foundLocation) {
         if (err) {
             res.redirect('/locations')
@@ -67,7 +68,7 @@ router.get('/locations/:id/edit', checkLocationOwnership, function(req, res) {
 })
 
 // location update route
-router.put('/locations/:id', checkLocationOwnership, function(req, res) {
+router.put('/locations/:id', middleware.checkLocationOwnership, function(req, res) {
     // find and update correct location
     Location.findByIdAndUpdate(req.params.id, req.body.location, function(err, updatedLocation) {
         if(err) {
@@ -80,7 +81,7 @@ router.put('/locations/:id', checkLocationOwnership, function(req, res) {
 })
 
 // location delete route
-router.delete('/locations/:id', checkLocationOwnership, function(req, res) {
+router.delete('/locations/:id', middleware.checkLocationOwnership, function(req, res) {
     // find and delete correct location
     Location.findByIdAndRemove(req.params.id, function(err, ) {
         if(err) {
@@ -92,42 +93,9 @@ router.delete('/locations/:id', checkLocationOwnership, function(req, res) {
     })
 })
 
-// middleware
 
-// checks if user is signed in
-function isSignedIn(req, res, next) {
-    if(req.isAuthenticated()){
-        return next();
-    }
-    req.flash('error', 'You need to be signed in to do that!')
-    res.redirect('/signin');
-}
 
-// checks for user/location association
-function checkLocationOwnership(req, res, next){
-    if(req.isAuthenticated()){        
-        Location.findById(req.params.id, function(err, foundLocation){
-            // checks for error and foundCampground with exact parameters
-            if(err || !foundLocation){
-                req.flash('error', 'Location not found')
-                res.redirect('back')
-            } else {
-                // does user own location
-                if(foundLocation.author.id.equals(req.user._id)){
-                    next();
 
-                } else {
-                    req.flash('error', 'You do not have permission to do that!')
-                    res.redirect('back');
-                }
-            }
-        });
-            // if not redirect
-    } else {
-        req.flash('error', 'You need to be signed in to do that!')
-        res.redirect('back');       
-    }
-}
 
 
 

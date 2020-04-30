@@ -18,6 +18,34 @@ function(req, res, next) {
     res.redirect('/signin')
 }
 
+// checks for user/location association
+middlewareObj.checkLocationOwnership =
+function checkLocationOwnership(req, res, next){
+    if(req.isAuthenticated()){        
+        Location.findById(req.params.id, function(err, foundLocation){
+            // checks for error and foundCampground with exact parameters
+            if(err || !foundLocation){
+                req.flash('error', 'Location not found')
+                res.redirect('back')
+            } else {
+                // does user own location
+                if(foundLocation.author.id.equals(req.user._id)){
+                    next();
+
+                } else {
+                    req.flash('error', 'You do not have permission to do that!')
+                    res.redirect('back');
+                }
+            }
+        });
+            // if not redirect
+    } else {
+        req.flash('error', 'You need to be signed in to do that!')
+        res.redirect('back');       
+    }
+}
+
+
 // checks if user/comment are associated
 middlewareObj.checkCommentOwnership =
 function checkCommentOwnership(req, res, next){
