@@ -33,9 +33,15 @@ router.post('/locations/:id/keto-options', isSignedIn, function(req, res) {
                     console.log(err);
                     
                 } else {
+                    console.log(ketoOption + 'BEFORE');
+                    
+                    ketoOption.location.id = location._id;
+                    ketoOption.location.name = location.name;
                     ketoOption.save();
                     location.ketoOptions.push(ketoOption);
                     location.save();
+                    console.log(ketoOption + 'AFTER');
+                    
                     res.redirect('/locations/' + location._id)
                 }
             })

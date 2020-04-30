@@ -6,7 +6,14 @@ var ketoOptionSchema = new mongoose.Schema({
     description: String,
     price: String,
     image: String,
-    carbs: Number
+    carbs: Number,
+    location: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Location'
+        },
+        name: String
+    }
 })
 
 module.exports = mongoose.model('KetoOption', ketoOptionSchema);

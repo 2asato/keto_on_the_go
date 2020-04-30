@@ -30,7 +30,7 @@ router.post('/locations', isSignedIn, function(req, res) {
             newLocation.author.username = req.user.username;
             newLocation.author.id = req.user._id;            
             newLocation.save();
-            console.log(newLocation);
+            // console.log(newLocation);
             res.redirect('locations')
         }
     })
@@ -48,7 +48,7 @@ router.get('/locations/:id', function(req, res) {
             console.log(err);
             res.redirect('back')
         } else {
-            console.log(foundLocation);
+            // console.log(foundLocation);
             res.render('locations/show', { location: foundLocation })
         }
     })
