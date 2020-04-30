@@ -32,6 +32,7 @@ router.post('/locations/:id/comments', isSignedIn, function(req, res) {
             // create new comment
             Comment.create(req.body.comment, function(err, comment) {
                 if(err) {
+                    req.flash('error', 'Something went wrong')
                     console.log(err);
                     
                 } else {
@@ -45,7 +46,8 @@ router.post('/locations/:id/comments', isSignedIn, function(req, res) {
                     // add new comment to location
                     location.comments.push(comment);
                     // save location with new comment
-                    location.save();                  
+                    location.save();  
+                    req.flash('success', 'Comment added successfully')                
                     res.redirect('/locations/' + location._id);
                 }
             })
@@ -57,6 +59,7 @@ router.post('/locations/:id/comments', isSignedIn, function(req, res) {
 router.get('/locations/:id/comments/:comment_id/edit', checkCommentOwnership, function(req, res) {
     Location.findById(req.params.id, function(err, foundLocation) {
         if (err || !foundLocation) {
+            req.flash('error', 'Location not found')
             return res.redirect('back');
         }
         Comment.findById(req.params.comment_id, function(err, foundComment) {
@@ -77,6 +80,7 @@ router.put('/locations/:id/comments/:comment_id', checkCommentOwnership, functio
         if (err) {
             res.redirect('back');
         } else {
+            req.flash('success', 'Comment edited successfully')
             res.redirect('/locations/' + req.params.id)
         }
     })
@@ -88,6 +92,7 @@ router.delete('/locations/:id/comments/:comment_id', checkCommentOwnership, func
         if (err) {
             res.redirect('back');
         } else {
+            req.flash('success', 'Comment deleted successfully')
             res.redirect('/locations/' + req.params.id);
         }
     })
@@ -100,6 +105,7 @@ function isSignedIn(req, res, next) {
     if(req.isAuthenticated()){
         return next();
     }
+    req.flash('error', 'You need to be signed in to do that!')
     res.redirect('/signin');
 }
 
@@ -107,6 +113,7 @@ function checkCommentOwnership(req, res, next){
     if(req.isAuthenticated()){        
         Comment.findById(req.params.comment_id, function(err, foundComment){
             if(err || !foundComment){
+                req.flash('error', 'Comment not found')
                 res.redirect('back')
             } else {
                 // does user own campground
@@ -114,12 +121,14 @@ function checkCommentOwnership(req, res, next){
                     next();
 
                 } else {
+                    req.flash('error', 'You do not have permission to do that!' )
                     res.redirect('back');
                 }
             }
         });
             // if not redirect
     } else {
+        req.flash('error', 'You need to be signed in to do that!')
         res.redirect('back');
         
     }
