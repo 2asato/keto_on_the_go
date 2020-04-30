@@ -1,14 +1,15 @@
 var express = require('express'),
     router = express.Router({mergeParams: true}),
     KetoOption = require('../models/ketoOption'),
-    Location = require('../models/location');
+    Location = require('../models/location'),
+    middleware = require('../middleware');
 
 
 // ==================
 // KETO-OPTIONS ROUTES
 // ==================
 
-router.get('/locations/:id/keto-options/new', isSignedIn, function(req, res) {
+router.get('/locations/:id/keto-options/new', middleware.isSignedIn, function(req, res) {
     Location.findById(req.params.id, function(err, location) {
         if (err) {
             console.log(err);
@@ -21,7 +22,7 @@ router.get('/locations/:id/keto-options/new', isSignedIn, function(req, res) {
 
 
 // ketoOptions create route
-router.post('/locations/:id/keto-options', isSignedIn, function(req, res) {
+router.post('/locations/:id/keto-options', middleware.isSignedIn, function(req, res) {
     // lookup location by id
     Location.findById(req.params.id, function(err, location) {
         if (err) {
@@ -92,17 +93,5 @@ router.delete('/locations/:id/keto-options/:ketoOption_id', function(req, res) {
     })
 })
 
-
-// =============
-// MIDDLEWARE
-// =============
-
-function isSignedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    req.flash('error', 'You need to be signed in to do that!')
-    res.redirect('/signin');
-}
 
 module.exports = router;

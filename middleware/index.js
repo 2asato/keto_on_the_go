@@ -45,7 +45,6 @@ function checkLocationOwnership(req, res, next){
     }
 }
 
-
 // checks if user/comment are associated
 middlewareObj.checkCommentOwnership =
 function checkCommentOwnership(req, res, next){
