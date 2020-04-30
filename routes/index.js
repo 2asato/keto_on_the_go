@@ -1,7 +1,8 @@
 var express = require('express'),
     router = express.Router(),
     passport = require('passport'),
-    User = require('../models/user')
+    User = require('../models/user'),
+    flash = require('connect-flash')
 
 
 // ================
@@ -26,6 +27,7 @@ router.post('/signup', function(req, res) {
             return res.render('signup')
         } 
             passport.authenticate('local')(req, res, function() {
+            req.flash('success', 'Welcome to YelpCamp ' + user.username)
             res.redirect('/locations');
         })
     })
@@ -57,6 +59,7 @@ function isSignedIn(req, res, next) {
     if(req.isAuthenticated()){
         return next();
     }
+    req.flash('error', 'Please Sign In First!');
     res.redirect('/signin');
 }
 

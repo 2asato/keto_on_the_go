@@ -63,3 +63,26 @@
             </div>
         </nav>
 
+
+        <!-- success alert message -->
+        <% if (success && success.length > 0) { %>
+        <div class="container">
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>              
+        </div>
+        <% } %>
+        <!-- success alert message end -->
+
+        <!-- error alert messge  -->
+        <% if (error && error.length > 0) { %>
+            <div class="container">
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            </div>
+        <% } %>
+                
+
+        <!-- error alert message end -->
+
