@@ -30,6 +30,7 @@ router.post('/locations/:id/keto-options', isSignedIn, function(req, res) {
         } else {
             KetoOption.create(req.body.ketoOption, function(err, ketoOption) {
                 if (err) {
+                    req.flash('error', 'Something went wrong')
                     console.log(err);
                     
                 } else {
@@ -40,6 +41,7 @@ router.post('/locations/:id/keto-options', isSignedIn, function(req, res) {
                     ketoOption.save();
                     location.ketoOptions.push(ketoOption);
                     location.save();
+                    req.flash('success', 'Keto Option added succesfully')
                     console.log(ketoOption + 'AFTER');
                     
                     res.redirect('/locations/' + location._id)
@@ -53,6 +55,7 @@ router.post('/locations/:id/keto-options', isSignedIn, function(req, res) {
 router.get('/locations/:id/keto-options/:ketoOption_id/edit', function(req, res) {
     Location.findById(req.params.id, function(err, foundLocation) {
         if (err || !foundLocation) {
+            req.flash('error', 'Can not find that keto option')
             return res.redirect('back');
         } 
         KetoOption.findById(req.params.ketoOption_id, function(err, foundKetoOption) {
@@ -71,7 +74,7 @@ router.put('/locations/:id/keto-options/:ketoOption_id', function(req, res) {
         if (err) {
             res.redirect('back');
         } else {
-            
+            req.flash('success', 'Keto Option edited successfully')
             res.redirect('/locations/' + req.params.id);
         }
     })
@@ -83,6 +86,7 @@ router.delete('/locations/:id/keto-options/:ketoOption_id', function(req, res) {
         if (err) {
             res.redirect('back')
         } else {
+            req.flash('success', 'Keto Option deleted')
             res.redirect('/locations/' + req.params.id);
         }
     })
@@ -97,6 +101,7 @@ function isSignedIn(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
+    req.flash('error', 'You need to be signed in to do that!')
     res.redirect('/signin');
 }
 
