@@ -11,7 +11,7 @@ var express = require('express'),
     Location = require('./models/location'),
     Comment = require('./models/comment'),
     User = require('./models/user'),
-    KetoOption = require('./models/ketoOptions'),
+    KetoOption = require('./models/ketoOption'),
     seedDB = require('./seeds');
 
 

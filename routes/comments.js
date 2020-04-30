@@ -1,7 +1,8 @@
 var express = require('express'),
     router = express.Router({mergeParams: true}),
     Comment = require('../models/comment'),
-    Location = require('../models/location')
+    Location = require('../models/location'),
+    middleware = require('../middleware')
 
 
 // ===================
@@ -9,7 +10,7 @@ var express = require('express'),
 // ====================
 
 // new comment page
-router.get('/locations/:id/comments/new', isSignedIn, function(req, res) {
+router.get('/locations/:id/comments/new', middleware.isSignedIn, function(req, res) {
     // find location by id
     Location.findById(req.params.id, function(err, location) {
         if(err) {
@@ -22,7 +23,7 @@ router.get('/locations/:id/comments/new', isSignedIn, function(req, res) {
 })
 
 // create comments route
-router.post('/locations/:id/comments', isSignedIn, function(req, res) {
+router.post('/locations/:id/comments', middleware.isSignedIn, function(req, res) {
     // lookup location using id
     Location.findById(req.params.id, function(err, location) {
         if(err) {
@@ -56,7 +57,7 @@ router.post('/locations/:id/comments', isSignedIn, function(req, res) {
 })
 
 // edit comments route
-router.get('/locations/:id/comments/:comment_id/edit', checkCommentOwnership, function(req, res) {
+router.get('/locations/:id/comments/:comment_id/edit', middleware.checkCommentOwnership, function(req, res) {
     Location.findById(req.params.id, function(err, foundLocation) {
         if (err || !foundLocation) {
             req.flash('error', 'Location not found')
@@ -75,7 +76,7 @@ router.get('/locations/:id/comments/:comment_id/edit', checkCommentOwnership, fu
 })
 
 // update comments route
-router.put('/locations/:id/comments/:comment_id', checkCommentOwnership, function(req, res) {
+router.put('/locations/:id/comments/:comment_id', middleware.checkCommentOwnership, function(req, res) {
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, foundComment) {
         if (err) {
             res.redirect('back');
@@ -87,7 +88,7 @@ router.put('/locations/:id/comments/:comment_id', checkCommentOwnership, functio
 })
 
 // delete comments route
-router.delete('/locations/:id/comments/:comment_id', checkCommentOwnership, function(req, res) {
+router.delete('/locations/:id/comments/:comment_id', middleware.checkCommentOwnership, function(req, res) {
     Comment.findByIdAndRemove(req.params.comment_id, function(err) {
         if (err) {
             res.redirect('back');
@@ -99,41 +100,6 @@ router.delete('/locations/:id/comments/:comment_id', checkCommentOwnership, func
 })
 
 
-
-// middleware
-function isSignedIn(req, res, next) {
-    if(req.isAuthenticated()){
-        return next();
-    }
-    req.flash('error', 'You need to be signed in to do that!')
-    res.redirect('/signin');
-}
-
-function checkCommentOwnership(req, res, next){
-    if(req.isAuthenticated()){        
-        Comment.findById(req.params.comment_id, function(err, foundComment){
-            if(err || !foundComment){
-                req.flash('error', 'Comment not found')
-                res.redirect('back')
-            } else {
-                // does user own campground
-                if(foundComment.author.id.equals(req.user._id)){
-                    next();
-
-                } else {
-                    req.flash('error', 'You do not have permission to do that!' )
-                    res.redirect('back');
-                }
-            }
-        });
-            // if not redirect
-    } else {
-        req.flash('error', 'You need to be signed in to do that!')
-        res.redirect('back');
-        
-    }
-
-}
 
 
 

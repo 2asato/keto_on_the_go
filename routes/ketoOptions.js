@@ -1,6 +1,6 @@
 var express = require('express'),
     router = express.Router({mergeParams: true}),
-    KetoOption = require('../models/ketoOptions'),
+    KetoOption = require('../models/ketoOption'),
     Location = require('../models/location');
 
 
