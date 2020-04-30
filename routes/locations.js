@@ -31,6 +31,7 @@ router.post('/locations', isSignedIn, function(req, res) {
             newLocation.author.id = req.user._id;            
             newLocation.save();
             // console.log(newLocation);
+            req.flash('success', 'Location created')
             res.redirect('locations')
         }
     })
@@ -44,8 +45,8 @@ router.get('/locations/new', isSignedIn, function(req, res) {
 // location show route
 router.get('/locations/:id', function(req, res) {
     Location.findById(req.params.id).populate('comments').populate('ketoOptions').exec(function(err, foundLocation) {
-        if(err) {
-            console.log(err);
+        if(err || !foundLocation) {
+            req.flash('error', 'Location not found')
             res.redirect('back')
         } else {
             // console.log(foundLocation);
@@ -57,7 +58,11 @@ router.get('/locations/:id', function(req, res) {
 // location edit route
 router.get('/locations/:id/edit', checkLocationOwnership, function(req, res) {
     Location.findById(req.params.id, function(err, foundLocation) {
-        res.render('locations/edit', { location: foundLocation })
+        if (err) {
+            res.redirect('/locations')
+        } else {
+            res.render('locations/edit', { location: foundLocation })
+        }
     })
 })
 
@@ -68,6 +73,7 @@ router.put('/locations/:id', checkLocationOwnership, function(req, res) {
         if(err) {
             res.redirect('/locations');
         } else {
+            req.flash('success', 'Location edited successfully!')
             res.redirect('/locations/' + req.params.id)
         }
     })
@@ -80,6 +86,7 @@ router.delete('/locations/:id', checkLocationOwnership, function(req, res) {
         if(err) {
             res.redirect('/loations')
         } else {
+            req.flash('success', 'Location deleted successfully!')
             res.redirect('/locations')
         }
     })
@@ -92,6 +99,7 @@ function isSignedIn(req, res, next) {
     if(req.isAuthenticated()){
         return next();
     }
+    req.flash('error', 'You need to be signed in to do that!')
     res.redirect('/signin');
 }
 
@@ -101,6 +109,7 @@ function checkLocationOwnership(req, res, next){
         Location.findById(req.params.id, function(err, foundLocation){
             // checks for error and foundCampground with exact parameters
             if(err || !foundLocation){
+                req.flash('error', 'Location not found')
                 res.redirect('back')
             } else {
                 // does user own location
@@ -108,13 +117,14 @@ function checkLocationOwnership(req, res, next){
                     next();
 
                 } else {
-                    
+                    req.flash('error', 'You do not have permission to do that!')
                     res.redirect('back');
                 }
             }
         });
             // if not redirect
     } else {
+        req.flash('error', 'You need to be signed in to do that!')
         res.redirect('back');       
     }
 }
