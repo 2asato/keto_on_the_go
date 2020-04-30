@@ -24,10 +24,11 @@ router.post('/signup', function(req, res) {
     );
     User.register(newUser, req.body.password, function(err, user) {
         if(err) {
+            req.flash('error', err.messge);
             return res.render('signup')
         } 
             passport.authenticate('local')(req, res, function() {
-            req.flash('success', 'Welcome to YelpCamp ' + user.username)
+            req.flash('success', 'Welcome to sEATtle on keto ' + user.username)
             res.redirect('/locations');
         })
     })
@@ -41,7 +42,9 @@ router.get('/signin', function(req, res) {
 // handle signin logic
 router.post('/signin', passport.authenticate('local', 
     { 
-        successRedirect: '/locations', 
+        successFlash: 'Welcome back',
+        successRedirect: '/locations',
+        failureFlash: 'Please sign up first!',
         failureRedirect: '/signin'
     }), function(req, res) {
 
@@ -50,18 +53,8 @@ router.post('/signin', passport.authenticate('local',
 // signout route
 router.get('/signout', function(req, res) {
     req.logOut();
+    req.flash('success', 'You have been signed out')
     res.redirect('/locations');
 })
-
-
-// middleware
-function isSignedIn(req, res, next) {
-    if(req.isAuthenticated()){
-        return next();
-    }
-    req.flash('error', 'Please Sign In First!');
-    res.redirect('/signin');
-}
-
 
 module.exports = router;
