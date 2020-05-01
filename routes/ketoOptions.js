@@ -11,7 +11,15 @@ var express = require('express'),
 
 // index route
 router.get('/keto-options', function(req, res) {
-    res.render('ketoOptions/index')
+    KetoOption.find({}, function(err, allKetoOptions) {
+        if (err) {
+            console.log(err);
+            
+        } else {
+            res.render('ketoOptions/index', { ketoOptions: allKetoOptions })
+
+        }
+    })
 })
 
 // new ketoOption route
