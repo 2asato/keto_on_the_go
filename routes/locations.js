@@ -74,7 +74,7 @@ router.put('/locations/:id', middleware.checkLocationOwnership, function(req, re
         if(err) {
             res.redirect('/locations');
         } else {
-            req.flash('success', 'Location edited successfully!')
+            req.flash('success', 'Location edited successfully')
             res.redirect('/locations/' + req.params.id)
         }
     })
@@ -87,7 +87,7 @@ router.delete('/locations/:id', middleware.checkLocationOwnership, function(req,
         if(err) {
             res.redirect('/loations')
         } else {
-            req.flash('success', 'Location deleted successfully!')
+            req.flash('success', 'Location deleted successfully')
             res.redirect('/locations')
         }
     })
