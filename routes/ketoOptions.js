@@ -11,7 +11,7 @@ var express = require('express'),
 
 // index route
 router.get('/keto-options', function(req, res) {
-    res.send('soon to be keto option index page')
+    res.render('ketoOptions/index')
 })
 
 // new ketoOption route

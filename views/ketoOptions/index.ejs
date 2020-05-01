@@ -1,5 +1,38 @@
 <%- include ('../partials/header') -%>
 
+<header class="jumbotron">
+    <div class="container text-right">
+        <h1 class="font-weight-bold">Keto Options</h1>
+        <p>View keto friendly menu options from locations in and around Seattle</p>
+        <br>
+        <a href="/ketoOptions/new" class="btn btn-sm btn-dark raleway text-center mt-2">Add New Keto Option</a>
+    </div>
+</header>
+
+
+<div class="container py-5 my-5 z-depth-1">
+    <section class="p-md-3 mx-md-5">
+        <div class="row">
+        <% ketoOptions.forEach(function(ketoOption) { %>
+        <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+            <div class="avatar white d-flex justify-content-center align-items-center">
+                <img
+                    src="https://mdbootstrap.com/img/Photos/Avatars/img%20(15).jpg"
+                    class="img-fluid z-depth-1"
+                />
+            </div>
+            <div class="text-center mt-4">
+                <h5 class="font-weight-bold pb-1">Veronica Smith</h5>
+                <p class="font-weight-normal">Creative Director</p>
+                <p class="text-muted mb-lg-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+        <% }) %>
+        </div>
+        </div>
+    </section>
+</div>
 
 
 
