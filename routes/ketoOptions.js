@@ -9,8 +9,12 @@ var express = require('express'),
 // KETO-OPTIONS ROUTES
 // ==================
 
+// index route
+router.get('/keto-options', function(req, res) {
+    res.send('soon to be keto option index page')
+})
 
-
+// new ketoOption route
 router.get('/locations/:id/keto-options/new', middleware.isSignedIn, function(req, res) {
     Location.findById(req.params.id, function(err, location) {
         if (err) {
