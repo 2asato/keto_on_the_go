@@ -16,6 +16,8 @@ router.get('/keto-options', function(req, res) {
             console.log(err);
             
         } else {
+            console.log(allKetoOptions);
+            
             res.render('ketoOptions/index', { ketoOptions: allKetoOptions })
 
         }

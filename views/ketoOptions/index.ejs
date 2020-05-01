@@ -17,19 +17,23 @@
         <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
             <div class="avatar white d-flex justify-content-center align-items-center">
                 <img
-                    src="https://mdbootstrap.com/img/Photos/Avatars/img%20(15).jpg"
+                    src="<%= ketoOption.image %>"
                     class="img-fluid z-depth-1"
                 />
             </div>
             <div class="text-center mt-4">
-                <h5 class="font-weight-bold pb-1">Veronica Smith</h5>
-                <p class="font-weight-normal">Creative Director</p>
+                <h5 class="font-weight-bold pb-1"><%= ketoOption.name %></h5>
+                <p class="font-weight-normal"><%= ketoOption.location.name %></p>
                 <p class="text-muted mb-lg-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        <%= ketoOption.description %>
                 </p>
+                <p class="font-weight-normal"><%= ketoOption.price%></p>
+                <p class="font-weight-normal"><%= ketoOption.carbs %></p>
+
             </div>
-        <% }) %>
         </div>
+        <% }) %>
+
         </div>
     </section>
 </div>
