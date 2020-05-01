@@ -42,7 +42,7 @@ router.get('/signin', function(req, res) {
 // handle signin logic
 router.post('/signin', passport.authenticate('local', 
     { 
-        successFlash: 'Welcome back',
+        successFlash: 'Welcome back!',
         successRedirect: '/locations',
         failureFlash: 'Please sign up first!',
         failureRedirect: '/signin'

@@ -31,7 +31,7 @@ router.post('/locations/:id/keto-options', middleware.isSignedIn, function(req, 
         } else {
             KetoOption.create(req.body.ketoOption, function(err, ketoOption) {
                 if (err) {
-                    req.flash('error', 'Something went wrong')
+                    req.flash('error', 'Something went wrong?')
                     console.log(err);
                     
                 } else {
@@ -75,7 +75,7 @@ router.put('/locations/:id/keto-options/:ketoOption_id', function(req, res) {
         if (err) {
             res.redirect('back');
         } else {
-            req.flash('success', 'Keto Option edited successfully')
+            req.flash('success', 'Keto option edited successfully')
             res.redirect('/locations/' + req.params.id);
         }
     })
@@ -87,7 +87,7 @@ router.delete('/locations/:id/keto-options/:ketoOption_id', function(req, res) {
         if (err) {
             res.redirect('back')
         } else {
-            req.flash('success', 'Keto Option deleted')
+            req.flash('success', 'Keto option deleted')
             res.redirect('/locations/' + req.params.id);
         }
     })

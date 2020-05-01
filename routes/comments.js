@@ -33,7 +33,7 @@ router.post('/locations/:id/comments', middleware.isSignedIn, function(req, res)
             // create new comment
             Comment.create(req.body.comment, function(err, comment) {
                 if(err) {
-                    req.flash('error', 'Something went wrong')
+                    req.flash('error', 'Something went wrong?')
                     console.log(err);
                     
                 } else {
