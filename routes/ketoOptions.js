@@ -9,6 +9,8 @@ var express = require('express'),
 // KETO-OPTIONS ROUTES
 // ==================
 
+
+
 router.get('/locations/:id/keto-options/new', middleware.isSignedIn, function(req, res) {
     Location.findById(req.params.id, function(err, location) {
         if (err) {
