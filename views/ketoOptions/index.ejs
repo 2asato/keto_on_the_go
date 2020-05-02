@@ -9,25 +9,25 @@
 </header>
 
 
-<div class="container py-5 my-5 z-depth-1">
-    <section class="p-md-3 mx-md-5">
+<div class="container">
+    <section class="">
         <div class="row">
         <% ketoOptions.forEach(function(ketoOption) { %>
-        <div class="col-lg-3 col-md-6 mb-lg-0 mb-4">
+        <div class="col-lg-4 col-md-6 mb-5">
             <div class="avatar white d-flex justify-content-center align-items-center">
                 <img
                     src="<%= ketoOption.image %>"
-                    class="img-fluid z-depth-1"
+                    class="img-fluid z-depth-5"
                 />
             </div>
-            <div class="text-center mt-4">
-                <h5 class="font-weight-bold pb-1"><%= ketoOption.name %></h5>
-                <p class="font-weight-normal"><%= ketoOption.location.name %></p>
+            <div class="mt-4">
+                <h5 class="raleway font-weight-bold text-center"><%= ketoOption.name %></h5>
+                <p class="font-weight-normal text-center"><%= ketoOption.location.name %></p><br>
                 <p class="text-muted mb-lg-0">
                         <%= ketoOption.description %>
-                </p>
-                <p class="font-weight-normal"><%= ketoOption.price%></p>
-                <p class="font-weight-normal"><%= ketoOption.carbs %></p>
+                </p><br>
+                <p class="font-weight-normal">Price: &nbsp<%= ketoOption.price%></p>
+                <p class="font-weight-normal">Carbs: &nbsp<%= ketoOption.carbs %></p>
 
             </div>
         </div>
