@@ -80,3 +80,11 @@ a {
     color: #fff;
     background-color: lightgrey;
 }
+
+#keto-desc {
+    font-size: .8rem;
+}
+
+#keto-loc-name {
+    font-size: .9rem;
+}
