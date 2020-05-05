@@ -83,8 +83,9 @@ a {
 
 #keto-desc {
     font-size: .8rem;
+    line-height: 1.2rem;
 }
 
-#keto-loc-name, .price-carbs-index {
+.name-price-carbs-index {
     font-size: .9rem;
 }

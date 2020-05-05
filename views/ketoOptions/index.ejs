@@ -19,19 +19,19 @@
                     class="img-fluid z-depth-5"
                 />
             </div>
-            <div class="mt-4">
+            <div class="mt-3">
                 <div class="text-center">
                     <h5 class="raleway font-weight-bold mb-0"><%= ketoOption.name %></h5>
-                    <p class="font-weight-bold raleway" id="keto-loc-name"><%= ketoOption.location.name %></p><br>                            
+                    <p class="font-weight-bold raleway name-price-carbs-index"><%= ketoOption.location.name %></p><br>                            
                 </div>
-                <div class="text-center">
-                    <p class="text-muted mb-lg-0" id="keto-desc">
-                            <%= ketoOption.description %>
+                <div class="text-center mt-2 mb-2" id="keto-desc">
+                    <p class="text-muted">
+                            <em><%= ketoOption.description %></em> 
                     </p><br>   
                 </div>
-                <div class="text-center price-carbs-index">
-                        <p class="mr-3"><span class="font-weight-bold raleway">Price:</span> &nbsp<%= ketoOption.price%></p>
-                        <p class="ml-3"><span class="font-weight-bold raleway">Carbs:</span> &nbsp<%= ketoOption.carbs %></p>         
+                <div class="text-center name-price-carbs-index">
+                        <p class="mr-xl-0"><span class="font-weight-bold raleway">Price:</span> &nbsp<%= ketoOption.price%></p><br>
+                        <p class="ml-xl-0"><span class="font-weight-bold raleway">Carbs:</span> &nbsp<%= ketoOption.carbs %></p>         
                 </div>
 
             </div>
