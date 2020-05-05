@@ -10,35 +10,35 @@
 
 
 <div class="container">
-        <div class="row">
+    <div class="row no-gutters">
         <% ketoOptions.forEach(function(ketoOption) { %>
-        <div class="col-xl-3 col-md-4 col-sm-6 mb-5">
-            <div class="">
-                <img
-                    src="<%= ketoOption.image %>"
-                    class="img-fluid z-depth-5"
-                />
-            </div>
-            <div class="mt-3">
-                <div class="text-center">
-                    <h5 class="raleway font-weight-bold mb-0"><%= ketoOption.name %></h5>
-                    <p class="font-weight-bold raleway name-price-carbs-index"><%= ketoOption.location.name %></p><br>                            
+        <div class="col-md-4 mb-3">
+            <div class="card-body">
+                <div class="">
+                    <img
+                        src="<%= ketoOption.image %>"
+                        class="img-fluid z-depth-5"
+                    />
                 </div>
-                <div class="text-center mt-2 mb-2" id="keto-desc">
-                    <p class="text-muted">
-                            <em><%= ketoOption.description %></em> 
-                    </p><br>   
+                <div class="mt-3">
+                    <div class="text-center">
+                        <h5 class="card-title raleway font-weight-bold mb-0"><%= ketoOption.name %></h5>
+                        <p class="font-weight-bold raleway name-price-carbs-index"><%= ketoOption.location.name %></p><br>                            
+                    </div>
+                    <div class="text-center mt-2 mb-2" id="keto-desc">
+                        <p class="text-muted">
+                                <%= ketoOption.description %>
+                        </p><br>   
+                    </div>
+                    <div class="text-center name-price-carbs-index">
+                            <p class="mr-xl-0"><span class="font-weight-bold raleway">Price:</span> &nbsp<%= ketoOption.price%></p><br>
+                            <p class="ml-xl-0"><span class="font-weight-bold raleway">Carbs:</span> &nbsp<%= ketoOption.carbs %></p>         
+                    </div>
                 </div>
-                <div class="text-center name-price-carbs-index">
-                        <p class="mr-xl-0"><span class="font-weight-bold raleway">Price:</span> &nbsp<%= ketoOption.price%></p><br>
-                        <p class="ml-xl-0"><span class="font-weight-bold raleway">Carbs:</span> &nbsp<%= ketoOption.carbs %></p>         
-                </div>
-
             </div>
         </div>
         <% }) %>
-
-        </div>
+    </div>
 </div>
 
 
