@@ -51,7 +51,7 @@ router.post('/locations/:id/keto-options', middleware.isSignedIn, function(req, 
                     console.log(err);
                     
                 } else {
-                    // console.log(ketoOption + 'BEFORE');
+                    console.log(ketoOption + 'BEFORE');
                     
                     ketoOption.location.id = location._id;
                     ketoOption.location.name = location.name;
@@ -59,7 +59,7 @@ router.post('/locations/:id/keto-options', middleware.isSignedIn, function(req, 
                     location.ketoOptions.push(ketoOption);
                     location.save();
                     req.flash('success', 'Keto Option added succesfully')
-                    // console.log(ketoOption + 'AFTER');
+                    console.log(ketoOption + 'AFTER');
                     
                     res.redirect('/locations/' + location._id)
                 }
