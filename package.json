@@ -1,5 +1,5 @@
 {
-  "name": "out_on_keto",
+  "name": "keto_on_the_go",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/2asato/seattle_on_keto.git"
+    "url": "git+https://github.com/2asato/keto_on_the_go.git"
   },
   "author": "Aaron Sato",
   "license": "ISC",
