@@ -59,7 +59,14 @@ seedDB();
 
 // landing page
 app.get('/', function(req, res) {
-    res.render('landing')
+    Location.find({}, function(err, allLocations) {
+        if (err) {
+            console.log(err);
+            
+        } else {
+            res.render('landing', { locations: allLocations })
+        }
+    })
 })
 
 
