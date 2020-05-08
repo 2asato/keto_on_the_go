@@ -93,6 +93,30 @@ router.delete('/locations/:id', middleware.checkLocationOwnership, function(req,
     })
 })
 
+// location like route
+router.post('/locations/:id/like', middleware.isSignedIn, function(req, res) {
+    Location.findById(req.params.id, function(err, foundLocation) {
+        if (err) {
+            console.log(err);
+            res.redirect('/locations');
+        } 
+        var foundUserLike = foundLocation.likes.some(function(like) {
+            return like.equals(req.user._id);
+        });
+        if (foundUserLike) {
+            foundLocation.likes.pull(req.user._id)
+        } else {
+            foundLocation.likes.push(req.user);
+        }
+        foundLocation.save(function(err) {
+            if (err) {
+                console.log(err);
+                return res.redirect('/locations');
+            }
+            return res.redirect('/locations/' + foundLocation._id);
+        })
+    })
+})
 
 
 
