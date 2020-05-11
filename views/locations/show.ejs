@@ -40,14 +40,19 @@
                     <!-- likes -->
                     <div class="container likes-div">
                         <div class="row">
-                            <form action="" method="POST">
+                            <form action="/locations/<%= location._id %>/like" method="POST">
                                 <div>
+                                    <% if(currentUser && location.likes.some(function(like){
+                                        return like.equals(currentUser._id)
+                                    })) {%>            
                                     <button class="btn btn-sm btn-dark raleway mt-2 my-buttons">
-                                        <i class="thumbs up outline icon"></i> Liked (&nbsp)
+                                        <i class="thumbs up outline icon"></i> Liked (&nbsp<%= location.likes.length %>&nbsp)
                                     </button>
+                                    <% } else { %>
                                     <button class="btn btn-sm btn-dark raleway mt-2 my-buttons">
-                                            <i class="thumbs up outline icon"></i> Like (&nbsp)
+                                            <i class="thumbs up outline icon"></i> Like (&nbsp<%= location.likes.length %>&nbsp)
                                     </button>
+                                    <% } %>
                                 </div>
                             </form> 
                         </div>
