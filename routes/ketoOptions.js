@@ -11,17 +11,22 @@ var express = require('express'),
 
 // index route
 router.get('/keto-options', function(req, res) {
-    KetoOption.find({}, function(err, allKetoOptions) {
-        if (err) {
-            console.log(err);
-            
-        } else {
-            console.log(allKetoOptions);
-            
-            res.render('ketoOptions/index', { ketoOptions: allKetoOptions })
-
-        }
-    })
+    var perPage = 5;
+    var pageQuery = parseInt(req.query.page);
+    var pageNumber = pageQuery ? pageQuery : 1;
+    KetoOption.find({}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allKetoOptions) {
+        KetoOption.countDocuments().exec(function (err, count) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.render("ketoOptions/index", {
+                    ketoOptions: allKetoOptions,
+                    current: pageNumber,
+                    pages: Math.ceil(count / perPage)
+                });
+            }
+        }); 
+    });
 })
 
 // new ketoOption route

@@ -25,16 +25,6 @@ router.get('/locations', function(req, res) {
             }
         }); 
     });
-
-    // Location.find({}, function(err, allLocations) {
-    //     if(err) {
-    //         console.log(err);
-            
-    //     } else {
-    //         res.render('locations/index', { locations: allLocations, currentUser: req.user });
-
-    //     }
-    // })
 })
 
 // locations create route
