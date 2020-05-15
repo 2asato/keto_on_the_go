@@ -9,15 +9,32 @@ var express = require('express'),
 
 // locations index route
 router.get('/locations', function(req, res) {
-    Location.find({}, function(err, allLocations) {
-        if(err) {
-            console.log(err);
-            
-        } else {
-            res.render('locations/index', { locations: allLocations, currentUser: req.user });
+    var perPage = 5;
+    var pageQuery = parseInt(req.query.page);
+    var pageNumber = pageQuery ? pageQuery : 1;
+    Location.find({}).sort({_id: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allLocations) {
+        Location.countDocuments().exec(function (err, count) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.render("locations/index", {
+                    locations: allLocations,
+                    current: pageNumber,
+                    pages: Math.ceil(count / perPage)
+                });
+            }
+        }); 
+    });
 
-        }
-    })
+    // Location.find({}, function(err, allLocations) {
+    //     if(err) {
+    //         console.log(err);
+            
+    //     } else {
+    //         res.render('locations/index', { locations: allLocations, currentUser: req.user });
+
+    //     }
+    // })
 })
 
 // locations create route
