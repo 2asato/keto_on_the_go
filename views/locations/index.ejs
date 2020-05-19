@@ -1,21 +1,28 @@
 <%- include ('../partials/header') -%>
 
-    <header class="jumbotron">
-        <div class="container text-right">
-            <h1 class="font-weight-bold">Welcome To Keto On The GO!</h1>
-            <p class="text-muted">View keto friendly locations in and around Seattle</p>
-            <br>
-            <a href="/locations/new" class="btn btn-sm btn-dark raleway text-center mt-3">Add New Location</a>
-        </div>
-    </header>
+    <div class="container">
+        <header class="jumbotron">
+            <div class="container text-right">
+                <h1 class="font-weight-bold">Welcome To Keto On The GO!</h1>
+                <p class="text-muted">View keto friendly locations in and around Seattle</p>
+                <br>
+                <a href="/locations/new" class="btn btn-sm btn-dark raleway text-center mt-3">Add New Location</a>
+            </div>
+        </header>        
+    </div>
 
     <div class="container">
+
         <div class="row">
+
             <% locations.forEach(function(location) { %>
             <div class="card mb-3 mt-5 border-0">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="<%= location.image %>" class="card-img card-fluid" alt="...">
+                        <div class="container">
+                                <img src="<%= location.image %>" class="card-img card-fluid" alt="...">
+
+                        </div>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
