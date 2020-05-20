@@ -1,5 +1,7 @@
 <%- include ('../partials/header') -%>
 
+<div class="container">
+
 <header class="jumbotron">
     <div class="container text-right">
         <h1 class="font-weight-bold">Keto Options</h1>
@@ -9,10 +11,11 @@
 </header>
 
 
+
 <div class="container">
     <div class="row no-gutters">
         <% ketoOptions.forEach(function(ketoOption) { %>
-        <div class="col-md-4 mb-3">
+        <div class="mb-3 col-lg-4">
             <div class="card-body">
                 <div class="">
                     <img
@@ -39,7 +42,9 @@
         </div>
         <% }) %>
     </div>
-</div>
+<!-- </div> -->
+
+
 
                 <!-- pagination -->
                 <div class="container mt-4">
