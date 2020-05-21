@@ -18,7 +18,8 @@ var express = require('express'),
 var locationRoutes = require('./routes/locations'),
     commentRoutes = require('./routes/comments'),
     indexRoutes = require('./routes/index'),
-    ketoOptionRoutes = require('./routes/ketoOptions')
+    ketoOptionRoutes = require('./routes/ketoOptions'),
+    imageRoutes = require('./routes/images')
 
 
     // connect mongoose
@@ -75,6 +76,7 @@ app.use(locationRoutes);
 app.use(commentRoutes);
 app.use(indexRoutes);
 app.use(ketoOptionRoutes);
+app.use(imageRoutes);
 
 
 // Tell Express to listen for requests (start server)

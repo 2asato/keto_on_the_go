@@ -18,7 +18,9 @@ var locationSchema = new mongoose.Schema({
     menu: String,
     yelp: String,
     kids: String,
-    image: String,
+    image: [
+        String
+    ],
     hours: String,
     phoneNumber: String,
     address: {
