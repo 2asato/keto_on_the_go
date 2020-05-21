@@ -11,7 +11,7 @@ router.get('/locations/:id/images/new', function(req, res) {
             console.log(err);
             
         } else {
-            res.send('soon to be new image form page')
+            res.render('images/new')
         }
     })
 })
