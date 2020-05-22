@@ -1,5 +1,31 @@
 <%- include ('../partials/header') -%>
 
+<div class="container w-75 mt-5">
+        <h3 class="raleway font-weight-bold mb-3">
+          Add Image To <%= location.name %>
+        </h3>
+      
+        <form action="/locations/<%= location._id %>/images" method="POST">
+          <div class="form-group">
+                <div class="form-group col-md-8">
+                        <label for="">Image *</label>
+                        <input 
+                            type="text"
+                            class="form-control form-control-sm"
+                            placeholder="Image URL"
+                            name="image[image]"
+                            required
+                        />
+                    </div>
+              </div>
+          <div class="form-group">
+            <button class="btn btn-md btn-default btn-block btn-dark mt-4">
+              Submit
+            </button>
+          </div>
+        </form>
+        <a class="font-weight-bold" href="/locations">Back</a>
+      </div>
 
 
 <%- include ('../partials/footer') -%>

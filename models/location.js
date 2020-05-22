@@ -18,8 +18,11 @@ var locationSchema = new mongoose.Schema({
     menu: String,
     yelp: String,
     kids: String,
-    image: [
-        String
+    images: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Image"
+        }
     ],
     hours: String,
     phoneNumber: String,
