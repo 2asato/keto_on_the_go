@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 // schema
 var imageSchema = new mongoose.Schema({
-    image: String,
+    url: String,
     user: {
         id: {
             type: mongoose.Schema.Types.ObjectId,

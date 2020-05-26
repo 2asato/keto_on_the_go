@@ -21,7 +21,8 @@ var locationSchema = new mongoose.Schema({
     images: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Image"
+            ref: 'Image'
+
         }
     ],
     hours: String,
