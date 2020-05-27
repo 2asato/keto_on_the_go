@@ -14,7 +14,7 @@ var data = [
         menu: 'thewalrusbar.com/menu/',
         yelp: 'yelp.com/biz/the-walrus-and-the-carpenter-seattle',
         kids: 'Yes',
-        // images: 'https://www.thewalrusbar.com/uploads/_900x900_fit_center-center_85_none/Walrus01.jpg',
+        coverImage: 'https://www.thewalrusbar.com/uploads/_900x900_fit_center-center_85_none/Walrus01.jpg',
         daysOpen: 'Monday',
         phoneNumber: '(206)395-9227',
         address: {
@@ -35,9 +35,9 @@ var data = [
         website: 'thepinkdoor.net/',
         menu: 'thepinkdoor.net/menus',
         kids: 'Yes',
-        // images: [
-        //     'https://images.squarespace-cdn.com/content/v1/574335cf59827e45443e86b7/1503937961211-E9WF95ZHXPJEO11Z5PIM/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/4A3A4021.jpg',
-        // ],
+        coverImage:
+            'https://images.squarespace-cdn.com/content/v1/574335cf59827e45443e86b7/1503937961211-E9WF95ZHXPJEO11Z5PIM/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/4A3A4021.jpg',
+    
         phoneNumber: '(206)443-13241'
     
     }
