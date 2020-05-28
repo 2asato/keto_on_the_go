@@ -28,18 +28,12 @@ router.post('/locations/:id/images', middleware.isSignedIn, function(req, res) {
                 if (err) {
                     console.log(err);
                     
-                } else {
-                    console.log(image.url);
-                    
+                } else {                    
                     image.user.id = req.user._id;
                     image.user.username = req.user.username;
                     image.save();
                     location.images.push(image);
                     location.save();
-                    console.log(location.images);
-                    
-                    console.log(location.images[0].url);
-                    
                     res.redirect('/locations/' + location._id);
                 }
             })
