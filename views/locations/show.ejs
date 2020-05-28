@@ -11,8 +11,7 @@
 
             <!-- img, info and description  -->
             <div class="thumbnail col">
-                <img class="img-fluid mb-4" src="<%= location.images.image %>" alt="" />
-                <p><%= location.images[0].url %></p>
+                <img class="img-fluid mb-4" src="<%= location.coverImage %>" alt="" />
                 <div class="caption-full">
                     <h3 class="raleway font-weight-bold"><a href=""><%= location.name %></a></h3>
                     <% if (currentUser) { %>
