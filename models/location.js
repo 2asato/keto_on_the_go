@@ -48,6 +48,12 @@ var locationSchema = new mongoose.Schema({
             ref: 'User'
         }
     ],
+    images: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Image'
+        }
+    ]
 });
 
 // location model
