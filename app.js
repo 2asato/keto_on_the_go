@@ -12,6 +12,7 @@ var express = require('express'),
     Comment = require('./models/comment'),
     User = require('./models/user'),
     KetoOption = require('./models/ketoOption'),
+    Image = require('./models/image'),
     seedDB = require('./seeds');
 
 
@@ -60,12 +61,12 @@ seedDB();
 
 // landing page
 app.get('/', function(req, res) {
-    Location.find({}, function(err, allLocations) {
+    Image.find({}, function(err, allImages) {
         if (err) {
             console.log(err);
             
         } else {
-            res.render('landing', { locations: allLocations })
+            res.render('landing', { images: allImages })
         }
     })
 })
