@@ -7,15 +7,15 @@
             <!-- <p>View keto friendly locations in and around Seattle</p> -->
             <!-- <br> -->
         <!-- </div> -->
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
+              <div class="carousel-item active" data-interval="5000">
                 <img src="https://ketowatt.com/wp-content/uploads/2018/12/Asadero-Ballard.jpg" class="d-block w-100" alt="">
               </div>
                 <% images.forEach(function(image){ %>
 
-              <div class="carousel-item">
-                  <img src="<%= image.url %>" class="d-block w-100" alt="...">
+              <div class="carousel-item" data-interval="5000">
+                  <img src="<%= image.url %>" class="d-block w-100" alt="">
               </div>
               <% }) %>
 
