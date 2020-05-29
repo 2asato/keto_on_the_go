@@ -52,7 +52,7 @@ router.get('/locations/new', middleware.isSignedIn, function(req, res) {
 
 // location show route
 router.get('/locations/:id', function(req, res) {
-    Location.findById(req.params.id).populate('comments').populate('ketoOptions').exec(function(err, foundLocation) {
+    Location.findById(req.params.id).populate('comments').populate('ketoOptions').populate('images').exec(function(err, foundLocation) {
         if(err || !foundLocation) {
             req.flash('error', 'Location not found')
             res.redirect('back')

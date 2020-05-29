@@ -1,5 +1,7 @@
 <%- include ('../partials/header') -%>
 
+
+
 <!-- page container -->
 <div class="container" id="show-container">
 
@@ -22,16 +24,13 @@
                                   alt="First slide">
                               </div>
                               <% location.images.forEach(function(image){ %>
+                                
 
                               <div class="carousel-item">
                                 <img class="d-block w-100" src="<%= image.url %>"
                                   alt="...">
                               </div>
                               <% }) %>
-                              <!-- <div class="carousel-item">
-                                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(47).jpg"
-                                  alt="Third slide">
-                              </div> -->
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>

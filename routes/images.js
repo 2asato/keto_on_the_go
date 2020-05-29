@@ -34,6 +34,7 @@ router.post('/locations/:id/images', middleware.isSignedIn, function(req, res) {
                     image.save();
                     location.images.push(image);
                     location.save();
+                    console.log(image.url)
                     res.redirect('/locations/' + location._id);
                 }
             })
