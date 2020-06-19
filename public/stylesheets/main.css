@@ -11,6 +11,10 @@ body {
     color: white;
 } */
 
+.navbar {
+    background-color: black;
+    color: white;
+}
 .raleway, h1 {
     font-family: 'Raleway', sans-serif;
 }
